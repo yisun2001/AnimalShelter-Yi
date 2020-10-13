@@ -1,0 +1,34 @@
+C:\Users\ys200\source\repos\AnimalShelter\EF.Infrastructure\bin\Debug\netcoreapp3.1\EF.Infrastructure.deps.json
+C:\Users\ys200\source\repos\AnimalShelter\EF.Infrastructure\bin\Debug\netcoreapp3.1\EF.Infrastructure.runtimeconfig.json
+C:\Users\ys200\source\repos\AnimalShelter\EF.Infrastructure\bin\Debug\netcoreapp3.1\EF.Infrastructure.runtimeconfig.dev.json
+C:\Users\ys200\source\repos\AnimalShelter\EF.Infrastructure\bin\Debug\netcoreapp3.1\EF.Infrastructure.dll
+C:\Users\ys200\source\repos\AnimalShelter\EF.Infrastructure\bin\Debug\netcoreapp3.1\EF.Infrastructure.pdb
+C:\Users\ys200\source\repos\AnimalShelter\EF.Infrastructure\bin\Debug\netcoreapp3.1\Core.Domain.dll
+C:\Users\ys200\source\repos\AnimalShelter\EF.Infrastructure\bin\Debug\netcoreapp3.1\Core.DomainServices.dll
+C:\Users\ys200\source\repos\AnimalShelter\EF.Infrastructure\bin\Debug\netcoreapp3.1\Core.DomainServices.pdb
+C:\Users\ys200\source\repos\AnimalShelter\EF.Infrastructure\bin\Debug\netcoreapp3.1\Core.Domain.pdb
+C:\Users\ys200\source\repos\AnimalShelter\EF.Infrastructure\obj\Debug\netcoreapp3.1\EF.Infrastructure.csprojAssemblyReference.cache
+C:\Users\ys200\source\repos\AnimalShelter\EF.Infrastructure\obj\Debug\netcoreapp3.1\EF.Infrastructure.AssemblyInfoInputs.cache
+C:\Users\ys200\source\repos\AnimalShelter\EF.Infrastructure\obj\Debug\netcoreapp3.1\EF.Infrastructure.AssemblyInfo.cs
+C:\Users\ys200\source\repos\AnimalShelter\EF.Infrastructure\obj\Debug\netcoreapp3.1\EF.Infrastructure.csproj.CoreCompileInputs.cache
+C:\Users\ys200\source\repos\AnimalShelter\EF.Infrastructure\obj\Debug\netcoreapp3.1\EF.Infrastructure.csproj.CopyComplete
+C:\Users\ys200\source\repos\AnimalShelter\EF.Infrastructure\obj\Debug\netcoreapp3.1\EF.Infrastructure.dll
+C:\Users\ys200\source\repos\AnimalShelter\EF.Infrastructure\obj\Debug\netcoreapp3.1\EF.Infrastructure.pdb
+C:\Users\ys200\source\repos\AnimalShelter\EF.Infrastructure\obj\Debug\netcoreapp3.1\EF.Infrastructure.genruntimeconfig.cache
+C:\Users\ys200\Desktop\to do\AnimalShelter\EF.Infrastructure\bin\Debug\netcoreapp3.1\EF.Infrastructure.deps.json
+C:\Users\ys200\Desktop\to do\AnimalShelter\EF.Infrastructure\bin\Debug\netcoreapp3.1\EF.Infrastructure.runtimeconfig.json
+C:\Users\ys200\Desktop\to do\AnimalShelter\EF.Infrastructure\bin\Debug\netcoreapp3.1\EF.Infrastructure.runtimeconfig.dev.json
+C:\Users\ys200\Desktop\to do\AnimalShelter\EF.Infrastructure\bin\Debug\netcoreapp3.1\EF.Infrastructure.dll
+C:\Users\ys200\Desktop\to do\AnimalShelter\EF.Infrastructure\bin\Debug\netcoreapp3.1\EF.Infrastructure.pdb
+C:\Users\ys200\Desktop\to do\AnimalShelter\EF.Infrastructure\bin\Debug\netcoreapp3.1\Core.Domain.dll
+C:\Users\ys200\Desktop\to do\AnimalShelter\EF.Infrastructure\bin\Debug\netcoreapp3.1\Core.DomainServices.dll
+C:\Users\ys200\Desktop\to do\AnimalShelter\EF.Infrastructure\bin\Debug\netcoreapp3.1\Core.DomainServices.pdb
+C:\Users\ys200\Desktop\to do\AnimalShelter\EF.Infrastructure\bin\Debug\netcoreapp3.1\Core.Domain.pdb
+C:\Users\ys200\Desktop\to do\AnimalShelter\EF.Infrastructure\obj\Debug\netcoreapp3.1\EF.Infrastructure.csprojAssemblyReference.cache
+C:\Users\ys200\Desktop\to do\AnimalShelter\EF.Infrastructure\obj\Debug\netcoreapp3.1\EF.Infrastructure.AssemblyInfoInputs.cache
+C:\Users\ys200\Desktop\to do\AnimalShelter\EF.Infrastructure\obj\Debug\netcoreapp3.1\EF.Infrastructure.AssemblyInfo.cs
+C:\Users\ys200\Desktop\to do\AnimalShelter\EF.Infrastructure\obj\Debug\netcoreapp3.1\EF.Infrastructure.csproj.CoreCompileInputs.cache
+C:\Users\ys200\Desktop\to do\AnimalShelter\EF.Infrastructure\obj\Debug\netcoreapp3.1\EF.Infrastructure.csproj.CopyComplete
+C:\Users\ys200\Desktop\to do\AnimalShelter\EF.Infrastructure\obj\Debug\netcoreapp3.1\EF.Infrastructure.dll
+C:\Users\ys200\Desktop\to do\AnimalShelter\EF.Infrastructure\obj\Debug\netcoreapp3.1\EF.Infrastructure.pdb
+C:\Users\ys200\Desktop\to do\AnimalShelter\EF.Infrastructure\obj\Debug\netcoreapp3.1\EF.Infrastructure.genruntimeconfig.cache

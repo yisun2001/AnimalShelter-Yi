@@ -1,0 +1,13 @@
+{
+  "dependencies": {
+    "mssql1": {
+      "resourceId": "/subscriptions/[parameters('subscriptionId')]/resourceGroups/[parameters('resourceGroupName')]/providers/Microsoft.Sql/servers/animalshelter-yi/databases/animalshelter-yi",
+      "type": "mssql.azure",
+      "connectionId": "animalshelter-yi",
+      "secretStore": "LocalSecretsFile"
+    },
+    "secrets1": {
+      "type": "secrets.user"
+    }
+  }
+}

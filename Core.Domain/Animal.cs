@@ -29,7 +29,6 @@ namespace Core.Domain
         public string Image { get; set; }
         [Required]
         public DateTime DateOfArrival { get; set; }
-        
         public DateTime? DateOfAdoption { get; set; }
         public DateTime? DateOfDeath { get; set; }
         [Required]
@@ -38,8 +37,8 @@ namespace Core.Domain
         public bool CompatibleWithKids { get; set; }
         [Required]
         public string ReasonOfDistancing { get; set; }
-        public ICollection<Treatment> Treatments { get; set; }
 
+        public ICollection<Treatment> Treatments { get; set; }
         public ICollection<Comment> Comments { get; set; }
 
         public Client AdoptedBy { get; set; }
@@ -48,7 +47,6 @@ namespace Core.Domain
         public int? ResidenceId { get; set; }
 
         public Volunteer Volunteer { get; set; }
-
         public int? VolunteerId { get; set; }
     }
 }

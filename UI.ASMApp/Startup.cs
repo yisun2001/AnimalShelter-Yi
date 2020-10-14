@@ -28,7 +28,7 @@ namespace UI.ASMApp
         public void ConfigureServices(IServiceCollection services)
         {
             // services.AddDbContext<AnimalShelterDbContext>(options => options.UseSqlServer("server = animalshelter-yi.database.windows.net; database = animalshelter-yi; Trusted_Connection=False;"));
-            services.AddDbContext<AnimalShelterDbContext>(options => options.UseSqlServer(Configuration.GetConnectionString("animalshelter-yi")));
+           services.AddDbContext<AnimalShelterDbContext>(options => options.UseSqlServer(Configuration.GetConnectionString("default")));
             services.AddControllersWithViews();
             services.AddScoped<IAnimalRepository, AnimalRepository>();
             

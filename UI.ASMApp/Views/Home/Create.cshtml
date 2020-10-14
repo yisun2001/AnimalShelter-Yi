@@ -1,120 +1,115 @@
 ﻿@model Animal
 
-<form enctype="multipart/form-data" asp-controller="home" asp-action="create" method="post" class="mt-3">
-    <div class="form-group row">
+<form enctype="multipart/form-data" asp-controller="home" asp-action="Create" method="post" class="mt-3">
+    <div class="form-group">
         <label asp-for="Name" class="col-sm-2 col-form-label"></label>
-        <div class="col-sm-10">
-            <input asp-for="Name" class="form-control" placeholder="Name">
+        <div class="col-sm-4">
+            <input asp-for="Name" class="form-control" required placeholder="Name">
             <span asp-validation-for="Name" class="text-danger"></span>
         </div>
-    </div>
-    <div class="form-group row">
         <label asp-for="DateOfBirth" class="col-sm-2 col-form-label"></label>
-        <div class="col-sm-10">
-            <input asp-for="DateOfBirth" class="form-control" placeholder="DateOfBirth">
+        <div class="col-sm-4">
+            <input asp-for="DateOfBirth" class="form-control" required placeholder="DateOfBirth">
             <span asp-validation-for="DateOfBirth" class="text-danger"></span>
         </div>
     </div>
 
-    <div class="form-group row">
+    <div class="form-group">
         <label asp-for="Age" class="col-sm-2 col-form-label"></label>
-        <div class="col-sm-10">
+        <div class="col-sm-4">
             <input asp-for="Age" class="form-control" placeholder="Age">
             <span asp-validation-for="Age" class="text-danger"></span>
         </div>
-    </div>
-    <div class="form-group row">
         <label asp-for="EstimatedAge" class="col-sm-2 col-form-label"></label>
-        <div class="col-sm-10">
+        <div class="col-sm-4">
             <input asp-for="EstimatedAge" class="form-control" placeholder="EstimatedAge">
             <span asp-validation-for="EstimatedAge" class="text-danger"></span>
         </div>
     </div>
-    <div class="form-group row">
+    <div class="form-group">
         <label asp-for="Description" class="col-sm-2 col-form-label"></label>
         <div class="col-sm-10">
-            <input asp-for="Description" class="form-control" placeholder="Description">
+            <textarea asp-for="Description"  class="form-control" placeholder="Description"></textarea>
             <span asp-validation-for="Description" class="text-danger"></span>
         </div>
     </div>
-    <div class="form-group row">
+
+    <div class="form-group">
         <label asp-for="TypeOfAnimal" class="col-sm-2 col-form-label"></label>
-        <div class="col-sm-10">
+        <div class="col-sm-3">
             <input asp-for="TypeOfAnimal" class="form-control" placeholder="TypeOfAnimal">
             <span asp-validation-for="TypeOfAnimal" class="text-danger"></span>
         </div>
-    </div>
-    <div class="form-group row">
+
         <label asp-for="Breed" class="col-sm-2 col-form-label"></label>
-        <div class="col-sm-10">
+        <div class="col-sm-3">
             <input asp-for="Breed" class="form-control" placeholder="Breed">
             <span asp-validation-for="Breed" class="text-danger"></span>
         </div>
-    </div>
-    <div class="form-group row">
         <label asp-for="Gender" class="col-sm-2 col-form-label"></label>
-        <div class="col-sm-10">
+        <div class="col-sm-3">
             <input asp-for="Gender" class="form-control" placeholder="Gender">
             <span asp-validation-for="Gender" class="text-danger"></span>
         </div>
     </div>
-    <div class="form-group row">
+
+    <div class="form-group">
         <label asp-for="Image" class="col-sm-2 col-form-label"></label>
         <div class="col-sm-10">
-            <input asp-for="Image" class="form-control" placeholder="Image">
+            <input asp-for="Image" type="file" class="form-control" placeholder="Image">
             <span asp-validation-for="Image" class="text-danger"></span>
         </div>
     </div>
-    <div class="form-group row">
+    <div class="form-group">
         <label asp-for="DateOfArrival" class="col-sm-2 col-form-label"></label>
         <div class="col-sm-10">
             <input asp-for="DateOfArrival" class="form-control" placeholder="DateOfArrival">
             <span asp-validation-for="DateOfArrival" class="text-danger"></span>
         </div>
     </div>
-    <div class="form-group row">
+    <div class="form-group">
         <label asp-for="DateOfAdoption" class="col-sm-2 col-form-label"></label>
         <div class="col-sm-10">
             <input asp-for="DateOfAdoption" class="form-control" placeholder="DateOfAdoption">
             <span asp-validation-for="DateOfAdoption" class="text-danger"></span>
         </div>
     </div>
-    <div class="form-group row">
+    <div class="form-group">
         <label asp-for="DateOfDeath" class="col-sm-2 col-form-label"></label>
         <div class="col-sm-10">
             <input asp-for="DateOfDeath" class="form-control" placeholder="DateOfDeath">
             <span asp-validation-for="DateOfDeath" class="text-danger"></span>
         </div>
     </div>
-    <div class="form-group row">
+    <div class="form-group">
         <label asp-for="IsNeutered" class="col-sm-2 col-form-label"></label>
         <div class="col-sm-10">
             <input asp-for="IsNeutered" class="form-control" placeholder="IsNeutered">
             <span asp-validation-for="IsNeutered" class="text-danger"></span>
         </div>
     </div>
-    <div class="form-group row">
+    <div class="form-group">
         <label asp-for="CompatibleWithKids" class="col-sm-2 col-form-label"></label>
         <div class="col-sm-10">
             <input asp-for="CompatibleWithKids" class="form-control" placeholder="CompatibleWithKids">
             <span asp-validation-for="CompatibleWithKids" class="text-danger"></span>
         </div>
     </div>
-    <div class="form-group row">
+    <div class="form-group">
         <label asp-for="ReasonOfDistancing" class="col-sm-2 col-form-label"></label>
         <div class="col-sm-10">
             <input asp-for="ReasonOfDistancing" class="form-control" placeholder="ReasonOfDistancing">
             <span asp-validation-for="ReasonOfDistancing" class="text-danger"></span>
         </div>
     </div>
-    <div class="form-group row">
+    <div class="form-group">
         <label asp-for="ClientNumber" class="col-sm-2 col-form-label"></label>
         <div class="col-sm-10">
             <input asp-for="ClientNumber" class="form-control" placeholder="ClientNumber">
             <span asp-validation-for="ClientNumber" class="text-danger"></span>
         </div>
     </div>
-    <div class="form-group row">
+    <div class="form-group">
         <label asp-for="ResidenceId" class="col-sm-2 col-form-label"></label>
         <div class="col-sm-10">
             <input asp-for="ResidenceId" class="form-control" placeholder="ResidenceId">
@@ -122,28 +117,28 @@
         </div>
     </div>
 
-    <div class="form-group row">
+    <div class="form-group">
         <label asp-for="VolunteerId" class="col-sm-2 col-form-label"></label>
         <div class="col-sm-10">
             <input asp-for="VolunteerId" class="form-control" placeholder="VolunteerId">
             <span asp-validation-for="VolunteerId" class="text-danger"></span>
         </div>
     </div>
-    <div class="form-group row">
+    <div class="form-group">
         <label asp-for="Volunteer" class="col-sm-2 col-form-label"></label>
         <div class="col-sm-10">
             <input asp-for="Volunteer" class="form-control" placeholder="Volunteer">
             <span asp-validation-for="Volunteer" class="text-danger"></span>
         </div>
     </div>
-    <div class="form-group row">
+    <div class="form-group">
         <label asp-for="Residence" class="col-sm-2 col-form-label"></label>
         <div class="col-sm-10">
             <input asp-for="Residence" class="form-control" placeholder="Residence">
             <span asp-validation-for="Residence" class="text-danger"></span>
         </div>
     </div>
-    <div class="form-group row">
+    <div class="form-group">
         <label asp-for="AdoptedBy" class="col-sm-2 col-form-label"></label>
         <div class="col-sm-10">
             <input asp-for="AdoptedBy" class="form-control" placeholder="AdoptedBy">

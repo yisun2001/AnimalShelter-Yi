@@ -24,6 +24,7 @@
     ".NETCoreApp,Version=v3.1": {
       "UI.ASMApp/1.0.0": {
         "dependencies": {
+          "Azure.Extensions.AspNetCore.Configuration.Secrets": "1.0.0",
           "Azure.Identity": "1.1.1",
           "Core.Domain": "1.0.0",
           "Core.DomainServices": "1.0.0",
@@ -328,6 +329,21 @@
           "lib/netstandard2.0/Azure.Core.dll": {}
         }
       },
+      "Azure.Extensions.AspNetCore.Configuration.Secrets/1.0.0": {
+        "dependencies": {
+          "Azure.Security.KeyVault.Secrets": "4.0.1",
+          "Microsoft.Extensions.Configuration": "3.1.8"
+        },
+        "runtime": {
+          "lib/netstandard2.0/Azure.Extensions.AspNetCore.Configuration.Secrets.dll": {
+            "assemblyVersion": "1.0.0.0",
+            "fileVersion": "1.0.20.30501"
+          }
+        },
+        "compile": {
+          "lib/netstandard2.0/Azure.Extensions.AspNetCore.Configuration.Secrets.dll": {}
+        }
+      },
       "Azure.Identity/1.1.1": {
         "dependencies": {
           "Azure.Core": "1.0.2",
@@ -345,6 +361,23 @@
         },
         "compile": {
           "lib/netstandard2.0/Azure.Identity.dll": {}
+        }
+      },
+      "Azure.Security.KeyVault.Secrets/4.0.1": {
+        "dependencies": {
+          "Azure.Core": "1.0.2",
+          "System.Memory": "4.5.3",
+          "System.Text.Json": "4.6.0",
+          "System.Threading.Tasks.Extensions": "4.5.2"
+        },
+        "runtime": {
+          "lib/netstandard2.0/Azure.Security.KeyVault.Secrets.dll": {
+            "assemblyVersion": "4.0.1.0",
+            "fileVersion": "4.0.120.5803"
+          }
+        },
+        "compile": {
+          "lib/netstandard2.0/Azure.Security.KeyVault.Secrets.dll": {}
         }
       },
       "bootstrap/4.5.2": {
@@ -3117,12 +3150,26 @@
       "path": "azure.core/1.0.2",
       "hashPath": "azure.core.1.0.2.nupkg.sha512"
     },
+    "Azure.Extensions.AspNetCore.Configuration.Secrets/1.0.0": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-G5KbKkQNgc+IDdykJrrSYYus027Reub3E9EEQGqmZwiU+RYM339VwiBoQlz1cpV/C6yTsq9y9e22JTP3BkpQXg==",
+      "path": "azure.extensions.aspnetcore.configuration.secrets/1.0.0",
+      "hashPath": "azure.extensions.aspnetcore.configuration.secrets.1.0.0.nupkg.sha512"
+    },
     "Azure.Identity/1.1.1": {
       "type": "package",
       "serviceable": true,
       "sha512": "sha512-TTB+Od1T9Okr1QNhXY0pTvuOsNtHqykgR1YcTt8o7jlsk2AWiuCilaOMqESTAK7a103e7YWVqjv9v5O7MJJlTg==",
       "path": "azure.identity/1.1.1",
       "hashPath": "azure.identity.1.1.1.nupkg.sha512"
+    },
+    "Azure.Security.KeyVault.Secrets/4.0.1": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-/6tKn6aMYGsaiFgdGmWX14V8yupFGqMxIGK1nD3D83cZY032VunmaP8wkDDNy3YUWM9UAqpejwQsgFdR/ftjbQ==",
+      "path": "azure.security.keyvault.secrets/4.0.1",
+      "hashPath": "azure.security.keyvault.secrets.4.0.1.nupkg.sha512"
     },
     "bootstrap/4.5.2": {
       "type": "package",

@@ -176,3 +176,8 @@ C:\Users\ys200\Desktop\to do\AnimalShelter\UI.ASMApp\bin\Debug\netcoreapp3.1\Pro
 C:\Users\ys200\Desktop\to do\AnimalShelter\UI.ASMApp\bin\Debug\netcoreapp3.1\Properties\ServiceDependencies\local\mssql1.arm.json
 C:\Users\ys200\Desktop\to do\AnimalShelter\UI.ASMApp\bin\Debug\netcoreapp3.1\Azure.Core.dll
 C:\Users\ys200\Desktop\to do\AnimalShelter\UI.ASMApp\bin\Debug\netcoreapp3.1\Azure.Identity.dll
+C:\Users\ys200\Desktop\to do\AnimalShelter\UI.ASMApp\bin\Debug\netcoreapp3.1\Properties\ServiceDependencies\animalshelter-yi - Web Deploy\secrets1.arm.json
+C:\Users\ys200\Desktop\to do\AnimalShelter\UI.ASMApp\bin\Debug\netcoreapp3.1\Azure.Extensions.AspNetCore.Configuration.Secrets.dll
+C:\Users\ys200\Desktop\to do\AnimalShelter\UI.ASMApp\bin\Debug\netcoreapp3.1\Azure.Security.KeyVault.Secrets.dll
+C:\Users\ys200\Desktop\to do\AnimalShelter\UI.ASMApp\obj\Debug\netcoreapp3.1\UI.ASMApp.csproj.CoreCompileInputs.cache
+C:\Users\ys200\Desktop\to do\AnimalShelter\UI.ASMApp\obj\Debug\netcoreapp3.1\UI.ASMApp.MvcApplicationPartsAssemblyInfo.cache

@@ -25,7 +25,7 @@ namespace UI.ASMApp.Controllers
         [HttpGet]
         public IActionResult Index()
         {
-            var model = _animalRepository.GetAllAnimals();
+            var model = _animalRepository.GetAllAnimals().ToList();
             return View(model);
         }
         [HttpGet]

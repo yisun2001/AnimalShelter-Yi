@@ -1,32 +1,35 @@
 ﻿@model Animal
 
-<div class="row justify-content-center m-3">
-    <div class="col-sm-8">
-        <div class="card">
-            <div class="card-header">
-                <h1>@Model?.Name</h1>
-            </div>
-            <div class="card-body text-center">
-                <img class="card-img-top" src="@Model?.Image" asp-append-version="true" />
-                <h4>Employee ID: @Model?.Id</h4>
-                <h4>age: @Model?.Age</h4>
-                <h4>Breed: @Model?.Breed</h4>
-            </div>
-            <div class="card-footer text-center">
-                <a asp-controller="home" asp-action="index" class="btn btn-primary">Back</a>
+@{ 
+    var photoPath = "~/Images/AnimalImages/" + (Model?.ImagePath ?? "noimage.jpg");
+}}
+    <div class="row justify-content-center m-3">
+        <div class="col-sm-8">
+            <div class="card">
+                <div class="card-header">
+                    <h1>@Model?.Name</h1>
+                </div>
+                <div class="card-body text-center">
+                    <img class="card-img-top" src="@photoPath" alt="Image is missing" asp-append-version="true" />
+                    <h4>Employee ID: @Model?.Id</h4>
+                    <h4>age: @Model?.Age</h4>
+                    <h4>Breed: @Model?.Breed</h4>
+                </div>
+                <div class="card-footer text-center">
+                    <a asp-controller="home" asp-action="index" class="btn btn-primary">Back</a>
 
-                <a asp-action="edit" asp-controller="home" asp-route-id="@Model?.Id" class="btn btn-primary">Edit</a>
-
-
-                <form asp-action="Delete" asp-route-id="@Model?.Id" method="post">
-                    <button type="submit" class="btn btn-danger">Delete</button>
-                </form>
+                    <a asp-action="edit" asp-controller="home" asp-route-id="@Model?.Id" class="btn btn-primary">Edit</a>
 
 
+                    <form asp-action="Delete" asp-route-id="@Model?.Id" method="post">
+                        <button type="submit" class="btn btn-danger">Delete</button>
+                    </form>
 
 
 
+
+
+                </div>
             </div>
         </div>
     </div>
-</div>

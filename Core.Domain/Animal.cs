@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Microsoft.AspNetCore.Http;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
@@ -25,8 +26,9 @@ namespace Core.Domain
         public string Breed { get; set; }
         [Required]
         public string Gender { get; set; }
-        [Required]
-        public string Image { get; set; }
+
+        public string ImagePath { get; set; }
+
         [Required]
         public DateTime DateOfArrival { get; set; }
         public DateTime? DateOfAdoption { get; set; }
@@ -48,5 +50,6 @@ namespace Core.Domain
 
         public Volunteer Volunteer { get; set; }
         public int? VolunteerId { get; set; }
+
     }
 }

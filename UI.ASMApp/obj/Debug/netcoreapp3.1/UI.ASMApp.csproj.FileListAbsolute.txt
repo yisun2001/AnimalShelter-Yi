@@ -157,7 +157,6 @@ C:\Users\ys200\Desktop\to do\AnimalShelter\UI.ASMApp\obj\Debug\netcoreapp3.1\Raz
 C:\Users\ys200\Desktop\to do\AnimalShelter\UI.ASMApp\obj\Debug\netcoreapp3.1\Razor\Views\Home\Details.cshtml.g.cs
 C:\Users\ys200\Desktop\to do\AnimalShelter\UI.ASMApp\obj\Debug\netcoreapp3.1\Razor\Views\Home\Edit.cshtml.g.cs
 C:\Users\ys200\Desktop\to do\AnimalShelter\UI.ASMApp\obj\Debug\netcoreapp3.1\Razor\Views\Home\Index.cshtml.g.cs
-C:\Users\ys200\Desktop\to do\AnimalShelter\UI.ASMApp\obj\Debug\netcoreapp3.1\Razor\Views\Home\Privacy.cshtml.g.cs
 C:\Users\ys200\Desktop\to do\AnimalShelter\UI.ASMApp\obj\Debug\netcoreapp3.1\Razor\Views\Shared\Error.cshtml.g.cs
 C:\Users\ys200\Desktop\to do\AnimalShelter\UI.ASMApp\obj\Debug\netcoreapp3.1\Razor\Views\Shared\_Layout.cshtml.g.cs
 C:\Users\ys200\Desktop\to do\AnimalShelter\UI.ASMApp\obj\Debug\netcoreapp3.1\Razor\Views\Shared\_ValidationScriptsPartial.cshtml.g.cs
@@ -179,5 +178,8 @@ C:\Users\ys200\Desktop\to do\AnimalShelter\UI.ASMApp\bin\Debug\netcoreapp3.1\Azu
 C:\Users\ys200\Desktop\to do\AnimalShelter\UI.ASMApp\bin\Debug\netcoreapp3.1\Properties\ServiceDependencies\animalshelter-yi - Web Deploy\secrets1.arm.json
 C:\Users\ys200\Desktop\to do\AnimalShelter\UI.ASMApp\bin\Debug\netcoreapp3.1\Azure.Extensions.AspNetCore.Configuration.Secrets.dll
 C:\Users\ys200\Desktop\to do\AnimalShelter\UI.ASMApp\bin\Debug\netcoreapp3.1\Azure.Security.KeyVault.Secrets.dll
+C:\Users\ys200\Desktop\to do\AnimalShelter\UI.ASMApp\obj\Debug\netcoreapp3.1\Razor\Views\Login\Login.cshtml.g.cs
+C:\Users\ys200\Desktop\to do\AnimalShelter\UI.ASMApp\bin\Debug\netcoreapp3.1\Microsoft.AspNetCore.Http.Features.dll
+C:\Users\ys200\Desktop\to do\AnimalShelter\UI.ASMApp\bin\Debug\netcoreapp3.1\System.IO.Pipelines.dll
 C:\Users\ys200\Desktop\to do\AnimalShelter\UI.ASMApp\obj\Debug\netcoreapp3.1\UI.ASMApp.csproj.CoreCompileInputs.cache
 C:\Users\ys200\Desktop\to do\AnimalShelter\UI.ASMApp\obj\Debug\netcoreapp3.1\UI.ASMApp.MvcApplicationPartsAssemblyInfo.cache

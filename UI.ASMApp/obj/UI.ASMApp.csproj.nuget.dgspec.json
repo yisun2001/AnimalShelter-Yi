@@ -93,6 +93,12 @@
       },
       "frameworks": {
         "netcoreapp3.1": {
+          "dependencies": {
+            "Microsoft.AspNetCore.Http.Features": {
+              "target": "Package",
+              "version": "[3.1.9, )"
+            }
+          },
           "imports": [
             "net461",
             "net462",
@@ -238,6 +244,10 @@
             "Azure.Identity": {
               "target": "Package",
               "version": "[1.1.1, )"
+            },
+            "Microsoft.AspNetCore.Hosting": {
+              "target": "Package",
+              "version": "[2.2.7, )"
             },
             "Microsoft.EntityFrameworkCore": {
               "target": "Package",

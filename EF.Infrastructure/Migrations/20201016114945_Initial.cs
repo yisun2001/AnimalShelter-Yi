@@ -3,7 +3,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 
 namespace EF.Infrastructure.Migrations
 {
-    public partial class InitialTableCreation : Migration
+    public partial class Initial : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
@@ -90,7 +90,7 @@ namespace EF.Infrastructure.Migrations
                     TypeOfAnimal = table.Column<string>(nullable: false),
                     Breed = table.Column<string>(nullable: false),
                     Gender = table.Column<string>(nullable: false),
-                    Image = table.Column<string>(nullable: false),
+                    ImagePath = table.Column<string>(nullable: true),
                     DateOfArrival = table.Column<DateTime>(nullable: false),
                     DateOfAdoption = table.Column<DateTime>(nullable: true),
                     DateOfDeath = table.Column<DateTime>(nullable: true),

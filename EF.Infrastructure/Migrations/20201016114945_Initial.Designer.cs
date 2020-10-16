@@ -10,8 +10,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace EF.Infrastructure.Migrations
 {
     [DbContext(typeof(AnimalShelterDbContext))]
-    [Migration("20201014123314_InitialTableCreation")]
-    partial class InitialTableCreation
+    [Migration("20201016114945_Initial")]
+    partial class Initial
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -64,8 +64,7 @@ namespace EF.Infrastructure.Migrations
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<string>("Image")
-                        .IsRequired()
+                    b.Property<string>("ImagePath")
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<bool>("IsNeutered")

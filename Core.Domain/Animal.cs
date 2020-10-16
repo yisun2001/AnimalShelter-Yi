@@ -51,5 +51,17 @@ namespace Core.Domain
         public Volunteer Volunteer { get; set; }
         public int? VolunteerId { get; set; }
 
+        public void CalculateAge() {
+            DateTime n = DateTime.Now;
+            int age = n.Year - DateOfBirth.Year;
+            int months = age * 12;
+
+            if (n.Month < DateOfBirth.Month || (n.Month == DateOfBirth.Month && n.Day < DateOfBirth.Day)) {
+                age--;
+                Age = age;
+
+            }
+        }
+
     }
 }

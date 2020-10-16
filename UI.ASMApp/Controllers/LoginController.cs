@@ -22,7 +22,7 @@ namespace UI.ASMApp.Controllers
             _logger = logger;
             this._animalRepository = animalRepository;
         }
-        public IActionResult Login()
+        public IActionResult Index()
         {
             return View();
         }

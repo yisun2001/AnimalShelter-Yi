@@ -45,8 +45,8 @@ namespace EF.Infrastructure
 
         public Animal UpdateAnimal(Animal animal)
         {
-            var an = _context.Animals.Attach(animal);
-            an.State = EntityState.Modified;
+            var anim = _context.Animals.Attach(animal);
+            anim.State = EntityState.Modified;
             _context.SaveChanges();
             return animal;
         }

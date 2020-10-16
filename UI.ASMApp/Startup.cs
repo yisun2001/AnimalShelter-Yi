@@ -31,6 +31,8 @@ namespace UI.ASMApp
            services.AddDbContext<AnimalShelterDbContext>(options => options.UseSqlServer(Configuration.GetConnectionString("default")));
             services.AddControllersWithViews();
             services.AddScoped<IAnimalRepository, AnimalRepository>();
+            services.AddScoped<IResidenceRepository, ResidenceRepository>();
+            /*services.AddScoped<ITreatmentRepository, TreatmentRepository>();*/
             
         }
 

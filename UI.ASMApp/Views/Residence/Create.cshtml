@@ -1,0 +1,81 @@
+﻿@model CreateResidenceViewModel
+
+<form enctype="multipart/form-data" asp-controller="residence" asp-action="Create" method="post" class="mt-3">
+    <!--Section: Contact v.2-->
+
+    <section class="mb-4">
+        <!--Section heading--> 
+            <a asp-controller="residence" asp-action="index" class="btn btn-primary">Back</a>
+
+        <h2 class="h1-responsive font-weight-bold text-center my-4">Add a Residence</h2>
+        <!--Section description-->
+
+
+        <p class="text-center w-responsive mx-auto mb-5">
+            Fill in the forms to add an individual or group residence.
+        </p>
+    </section>
+
+
+    <div class="row">
+
+        <div class="col-md-6">
+            <div class="md-form mb-0">
+                <label asp-for="Shelter " class=" col-form-label"></label>
+                <input asp-for="Shelter " class="form-control" required placeholder="Shelter ">
+                <span asp-validation-for="Shelter " class="text-danger"></span>
+            </div>
+        </div>
+        <div class="col-md-6">
+            <div class="md-form mb-0">
+                <label asp-for="MaxCapacity  " class=" col-form-label"></label>
+                <input asp-for="MaxCapacity  " class="form-control" required placeholder="MaxCapacity  ">
+                <span asp-validation-for="MaxCapacity  " class="text-danger"></span>
+            </div>
+        </div>
+    </div>
+
+    <div class="row">
+
+        <div class="col-md-4">
+            <div class="md-form mb-0">
+                <label asp-for="AnimalType " class=" col-form-label"></label>
+                <select asp-for="AnimalType " class="form-control" required placeholder="AnimalType ">
+                    <option value="dog">Dog</option>
+                    <option value="cat">Cat</option>
+                    <option value="other">Other</option>
+                </select>
+                <span asp-validation-for="AnimalType " class="text-danger"></span>
+            </div>
+        </div>
+
+
+        <div class="col-md-4">
+            <div class="md-form mb-0">
+                <label asp-for="IsNeutered " class=" col-form-label"></label>
+                <input asp-for="IsNeutered " class="form-control" required placeholder="IsNeutered ">
+                <span asp-validation-for="IsNeutered " class="text-danger"></span>
+            </div>
+        </div>
+
+
+
+        <div class="col-md-4">
+            <div class="md-form mb-0">
+                <label asp-for="IsIndivudialResidence " class=" col-form-label"></label>
+                <input asp-for="IsIndivudialResidence " class="form-control" required placeholder="IsIndivudialResidence ">
+                <span asp-validation-for="IsIndivudialResidence " class="text-danger"></span>
+            </div>
+        </div>
+    </div>
+
+
+    <div asp-validation-summary="All" class="text-danger"></div>
+    <div class="form-group row">
+        <div class="col-sm-2">
+            <button type="submit" class="btn btn-primary">Create Residence</button>
+        </div>
+    </div>
+
+</form>
+

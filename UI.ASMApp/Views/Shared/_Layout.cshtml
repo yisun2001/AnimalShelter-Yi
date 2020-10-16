@@ -19,19 +19,19 @@
                     <ul class="navbar-nav flex-grow-1">
                         <li class="nav-item">
                             <a href="@Url.Action("Index", "Home")" class="navbar-brand">
-                                <img src="~/Images/squiddie.jpg" alt="Animal Shelter" width="50" height="50" />
+                                <img src="~/Images/pet.png" alt="Animal Shelter" width="50" height="50" class="logo_top" />
 
 
                             </a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Index">Home</a>
+                            <a class="nav-link text-dark underline"  asp-area="" asp-controller="Home" asp-action="Index">Home</a>
                         </li>
                         <li class="nav-item">
-                         <a class="nav-link text-dark" asp-area="" asp-controller="Residence" asp-action="Residence">Residences</a>
+                         <a class="nav-link text-dark" asp-area="" asp-controller="Residence" asp-action="Index">Residences</a>
                      </li>
                         <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-controller="Login" asp-action="Login">Login</a>
+                            <a class="nav-link text-dark" asp-area="" asp-controller="Login" asp-action="Index">Login</a>
                         </li>
                         
                     </ul>
@@ -47,7 +47,7 @@
 
     <footer class="border-top footer text-muted">
         <div class="container">
-            &copy; 2020 - UI.ASMApp - <a asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
+            &copy; 2020 - UI.ASMApp - <a asp-area="" asp-controller="Home" asp-action="Index">Home</a>
         </div>
     </footer>
     <script src="~/lib/jquery/dist/jquery.min.js"></script>

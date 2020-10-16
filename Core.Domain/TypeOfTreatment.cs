@@ -6,8 +6,7 @@ namespace Core.Domain
 {
     public enum TypeOfTreatment
     {
-        Sterelisation=0,
-
+        Sterilization = 0,
         Castration=1,
         Vaccination=2,
         Operation=3,

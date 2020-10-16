@@ -117,21 +117,6 @@ namespace UI.ASMApp.Controllers
 
 
 
-
-/* [HttpPost]
- public IActionResult Create(Animal model)
- {
-     if (ModelState.IsValid)
-     {
-         Animal newAnimal = model;
-         _animalRepository.CreateAnimal(newAnimal);
-         return RedirectToAction("details", new { id = newAnimal.Id });
-     }
-     return View();
- }
-
- */
-
 [HttpPost]
         public IActionResult Delete(int id)
         {

@@ -2,34 +2,64 @@
 
 @{ 
     var photoPath = "~/Images/AnimalImages/" + (Model?.ImagePath ?? "noimage.jpg");
-}}
+}
+
+               <a asp-controller="home" asp-action="index" class="btn btn-primary">Back</a>
+
+
     <div class="row justify-content-center m-3">
-        <div class="col-sm-8">
+        <div class="col-md-12">
             <div class="card">
-                <div class="card-header">
+                <div class="card-header text-center">
                     <h1>@Model?.Name</h1>
                 </div>
-                <div class="card-body text-center">
-                    <img class="card-img-top" src="@photoPath" alt="Image is missing" asp-append-version="true" />
-                    <h4>Employee ID: @Model?.Id</h4>
-                    <h4>age: @Model?.Age</h4>
-                    <h4>Breed: @Model?.Breed</h4>
+                <div class="col-md-12 text-center">
+                    <img class=" center text-center" style="height: 300px; width: 300px; margin-bottom: 20px; margin-top: 20px;" src="@photoPath" alt="Image is missing" asp-append-version="true" />
                 </div>
-                <div class="card-footer text-center">
-                    <a asp-controller="home" asp-action="index" class="btn btn-primary">Back</a>
-
-                    <a asp-action="edit" asp-controller="home" asp-route-id="@Model?.Id" class="btn btn-primary">Edit</a>
 
 
-                    <form asp-action="Delete" asp-route-id="@Model?.Id" method="post">
-                        <button type="submit" class="btn btn-danger">Delete</button>
-                    </form>
+                <div class="row">
+                    <div class="card-body text-center col-md-6">
 
+                        <h4>Name @Model?.Name</h4>
+                        <h4>Age: @Model?.Age</h4>
+                        <h4>Gender: @Model?.Gender </h4>
+                    </div>
 
-
-
+                    <div class="card-body text-center col-md-6">
+                        <h4>Breed: @Model?.Breed</h4>
+                        <h4>Type of animal: @Model?.TypeOfAnimal</h4>
+                        <h4>Residence: @Model?.Residence</h4>
+                    </div>
 
                 </div>
-            </div>
+                <div class="text-center" style="margin-left: 20px; margin-right: 20px;">
+                    <h4>Description</h4>
+                    <p>@Model?.Description</p>
+                </div>
+
+                <div class="text-center">
+
+                        <a asp-action="create" asp-controller="treatment" asp-route-id="@Model?.Id" class="btn btn-primary">Add Treatment</a>
+
+                        <a asp-action="add" asp-controller="comment" asp-route-id="@Model?.Id" class="btn btn-primary">Add Comment</a>
+                </div>
+
+                    <div class="card-footer text-center">
+
+                        <a asp-action="edit" asp-controller="home" asp-route-id="@Model?.Id" class="btn btn-primary">Edit</a>
+
+
+                        <a asp-action="Delete" asp-route-id="@Model?.Id" method="post">
+                            <button type="submit" class="btn btn-danger">Delete</button>
+                        </a>
+
+
+
+
+                    </div>
+               
         </div>
+
+
     </div>

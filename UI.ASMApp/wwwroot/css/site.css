@@ -12,6 +12,20 @@ a {
   color: #0366d6;
 }
 
+/logo_top:hover {
+
+   opacity: 0.4;
+
+}
+
+.center {
+    
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    width: 50%;
+}
+
 .btn-primary {
   color: #fff;
   background-color: #1b6ec2;

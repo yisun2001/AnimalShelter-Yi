@@ -90,7 +90,11 @@
         <div class="col-md-4">
             <div class="md-form mb-0">
                 <label asp-for="Gender" class=" col-form-label"></label>
-                <input asp-for="Gender" class="form-control" required placeholder="Gender">
+                <select asp-for="Gender" class="form-control" required placeholder="Gender">
+                    <option value="Man">Man</option>
+                    <option value="Vrouw">Vrouw</option>
+                    <option value="Onbekend">Onbekend</option>
+                </select>
                 <span asp-validation-for="Gender" class="text-danger"></span>
             </div>
         </div>
@@ -101,7 +105,7 @@
         <div class="col-sm-10">
             <div class="custom-file">
                 <input asp-for="Image" class="form-control custom-file-input">
-                <label class="custom-file-label">Choose File...</label>
+                <label asp-for="Image">Choose File...</label>
             </div>
         </div>
     </div>
@@ -216,25 +220,7 @@
             </div>
         </div>
     </div>
-    @*<div class="form-group row">
-            <label asp-for="Department" class="col-sm-2 col-form-label"></label>
-            <div class="col-sm-10">
-                <select asp-for="Department" class="custom-select mr-sm-2"
-                        asp-items="Html.GetEnumSelectList<Dept>()">
-                    <option value="">Please Select</option>
-                </select>
-                <span asp-validation-for="Department" class="text-danger"></span>
-            </div>
-        </div>*@
-    @*<div class="form-group row">
-            <label asp-for="Photo" class="col-sm-2 col-form-label"></label>
-            <div class="col-sm-10">
-                <div class="custom-file">
-                    <input asp-for="Photo" class="form-control custom-file-input">
-                    <label class="custom-file-label">Choose File...</label>
-                </div>
-            </div>
-        </div>*@
+
 
     <div asp-validation-summary="All" class="text-danger"></div>
     <div class="form-group row">

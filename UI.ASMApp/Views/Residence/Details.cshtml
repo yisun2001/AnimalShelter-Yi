@@ -1,0 +1,33 @@
+﻿@model Residence
+
+
+    <div class="row justify-content-center m-3">
+        <div class="col-sm-8">
+            <div class="card">
+                <div class="card-header">
+                    <h1>@Model?.Shelter</h1>
+                </div>
+                <div class="card-body text-center">
+                  
+                    <h4>Capacity: @Model?.Capacity</h4>
+                    <h4>Max. Capacity: @Model?.MaxCapacity</h4>
+                    <h4>Is an Individual Residence: @Model?.IsIndivudialResidence</h4>
+                </div>
+                <div class="card-footer text-center">
+                    <a asp-controller="residence" asp-action="index" class="btn btn-primary">Back</a>
+
+                    <a asp-action="edit" asp-controller="residence" asp-route-id="@Model?.Id" class="btn btn-primary">Edit</a>
+
+
+                    <a asp-action="Delete" asp-route-id="@Model?.Id" method="post">
+                        <button type="submit" class="btn btn-danger">Delete</button>
+                    </a>
+
+
+
+
+
+                </div>
+            </div>
+        </div>
+    </div>

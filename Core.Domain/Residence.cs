@@ -17,6 +17,24 @@ namespace Core.Domain
 
         public ICollection<Animal> Animals{ get; set; }
 
+        public bool AddAnimal(Animal animal) {
+            if (Capacity < MaxCapacity) {
+
+                Animals.Add(animal);
+                Capacity++; 
+                   return true;  }
+            else return false;
+        }
+
+        public void RemoveAnimal(Animal animal)
+        {
+           
+
+                Animals.Remove(animal);
+                Capacity--;
+       
+        }
+
 
     }
 }

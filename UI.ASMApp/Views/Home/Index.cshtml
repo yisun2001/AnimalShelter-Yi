@@ -8,21 +8,22 @@
 
     @foreach (var e in @Model)
     {
-        var photoPath = "~/Images/AnimalImages/" + (e?.ImagePath ?? "noimage.jpg");
-<div class="card m-3" style="min-width: 18rem; max-width:70%">
-    <div class="card-header">
-        <h3>@e.Name</h3>
-    </div>
-    <img class="card-img-top imageThumbnail" src="@photoPath" asp-append-version="true" />
-    <div class="card-footer text-center">
-        <a asp-controller="home" asp-action="details" asp-route-id="@e.Id" class="btn btn-primary m-1">View</a>
-        <a asp-action="edit" asp-controller="home" asp-route-id="@e.Id" class="btn btn-primary m-1">Edit</a>
-        @*<a asp-controller="home" asp-action="Delete" method="delete" asp-route-id="@e.Id" class="btn btn-danger m-1">Delete</a>*@
+        var photoPath = "~/Images/AnimalImages/" + (e?.ImagePath ?? "No image available");
+    <div class="card m-3" style="min-width: 18rem; max-width:70%">
+        <div class="card-header">
+            <h3 class="text-center">@e.Name</h3>
+        </div>
+        <div class="text-center">
+            <img class="text-center center" style="height: 100px; width: 100px; margin-bottom: 20px; margin-top: 20px;" src="@photoPath" asp-append-version="true" />
+        </div>
+        <div class="card-footer text-center">
+            <a asp-controller="home" asp-action="details" asp-route-id="@e.Id" class="btn btn-primary m-1">View</a>
+            <a asp-action="edit" asp-controller="home" asp-route-id="@e.Id" class="btn btn-primary m-1">Edit</a>
+     
+            <form asp-action="Delete" asp-route-id="@e.Id" method="post">
+                <button type="submit" class="btn btn-danger">Delete</button>
+            </form>
 
-        <form asp-action="Delete" asp-route-id="@e.Id" method="post">
-            <button type="submit" class="btn btn-danger">Delete</button>
-        </form>
-
-    </div>
-</div>}
+        </div>
+    </div>}
 </div>

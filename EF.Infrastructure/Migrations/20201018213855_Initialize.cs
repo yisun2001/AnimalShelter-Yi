@@ -3,7 +3,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 
 namespace EF.Infrastructure.Migrations
 {
-    public partial class Initial : Migration
+    public partial class Initialize : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
@@ -60,6 +60,8 @@ namespace EF.Infrastructure.Migrations
                 {
                     ClientNumber = table.Column<int>(nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
+                    UserName = table.Column<string>(nullable: true),
+                    Password = table.Column<string>(nullable: true),
                     Adress = table.Column<string>(nullable: true),
                     PhoneNumber = table.Column<string>(nullable: true),
                     DateOfBirth = table.Column<DateTime>(nullable: false),
@@ -83,12 +85,12 @@ namespace EF.Infrastructure.Migrations
                     Id = table.Column<int>(nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
                     Name = table.Column<string>(nullable: false),
-                    DateOfBirth = table.Column<DateTime>(nullable: false),
+                    DateOfBirth = table.Column<DateTime>(nullable: true),
                     Age = table.Column<int>(nullable: false),
-                    EstimatedAge = table.Column<int>(nullable: false),
+                    EstimatedAge = table.Column<int>(nullable: true),
                     Description = table.Column<string>(nullable: false),
                     TypeOfAnimal = table.Column<string>(nullable: false),
-                    Breed = table.Column<string>(nullable: false),
+                    Breed = table.Column<string>(nullable: true),
                     Gender = table.Column<string>(nullable: false),
                     ImagePath = table.Column<string>(nullable: true),
                     DateOfArrival = table.Column<DateTime>(nullable: false),
@@ -96,7 +98,7 @@ namespace EF.Infrastructure.Migrations
                     DateOfDeath = table.Column<DateTime>(nullable: true),
                     IsNeutered = table.Column<bool>(nullable: false),
                     CompatibleWithKids = table.Column<bool>(nullable: false),
-                    ReasonOfDistancing = table.Column<string>(nullable: false),
+                    ReasonOfDistancing = table.Column<string>(nullable: true),
                     ClientNumber = table.Column<int>(nullable: true),
                     ResidenceId = table.Column<int>(nullable: true),
                     VolunteerId = table.Column<int>(nullable: true)
@@ -210,6 +212,7 @@ namespace EF.Infrastructure.Migrations
                     TypeOfTreatment = table.Column<int>(nullable: false),
                     Description = table.Column<string>(nullable: true),
                     Costs = table.Column<decimal>(type: "decimal", nullable: false),
+                    TreatmentExecutedbyClientNumber = table.Column<int>(nullable: true),
                     AgeRequirement = table.Column<int>(nullable: false),
                     DateOfTime = table.Column<DateTime>(nullable: false),
                     AnimalId = table.Column<int>(nullable: false)
@@ -223,6 +226,12 @@ namespace EF.Infrastructure.Migrations
                         principalTable: "Animals",
                         principalColumn: "Id",
                         onDelete: ReferentialAction.Cascade);
+                    table.ForeignKey(
+                        name: "FK_Treatments_Clients_TreatmentExecutedbyClientNumber",
+                        column: x => x.TreatmentExecutedbyClientNumber,
+                        principalTable: "Clients",
+                        principalColumn: "ClientNumber",
+                        onDelete: ReferentialAction.Restrict);
                 });
 
             migrationBuilder.CreateIndex(
@@ -323,6 +332,11 @@ namespace EF.Infrastructure.Migrations
                 table: "Treatments",
                 column: "Id",
                 unique: true);
+
+            migrationBuilder.CreateIndex(
+                name: "IX_Treatments_TreatmentExecutedbyClientNumber",
+                table: "Treatments",
+                column: "TreatmentExecutedbyClientNumber");
 
             migrationBuilder.CreateIndex(
                 name: "IX_Volunteers_VolunteerId",

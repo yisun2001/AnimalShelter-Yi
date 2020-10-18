@@ -12,17 +12,17 @@ namespace Core.Domain
         public int Id { get; set; }
         [Required]
         public string Name { get; set; }
-        [Required]
-        public DateTime DateOfBirth { get; set; }
-        [Required]
+
+        public DateTime? DateOfBirth { get; set; }
+
         public int Age { get; set; }
-        [Required]
-        public int EstimatedAge { get; set; }
+
+        public int? EstimatedAge { get; set; }
         [Required]
         public string Description { get; set; }
         [Required]
         public string TypeOfAnimal { get; set; }
-        [Required]
+
         public string Breed { get; set; }
         [Required]
         public string Gender { get; set; }
@@ -37,8 +37,10 @@ namespace Core.Domain
         public bool IsNeutered { get; set; }
         [Required]
         public bool CompatibleWithKids { get; set; }
-        [Required]
+        //[Required]
         public string ReasonOfDistancing { get; set; }
+
+     /*   public bool Adoptable { get; set; }*/
 
         public ICollection<Treatment> Treatments { get; set; }
 
@@ -68,7 +70,7 @@ namespace Core.Domain
         public Volunteer Volunteer { get; set; }
         public int? VolunteerId { get; set; }
 
-        public void CalculateAge() {
+       /* public void CalculateAge() {
             DateTime n = DateTime.Now;
             int age = n.Year - DateOfBirth.Year;
             int months = age * 12;
@@ -78,6 +80,6 @@ namespace Core.Domain
                 Age = age;
 
             }
-        }
+        }*/
    }
     }

@@ -13,17 +13,17 @@ namespace UI.ASMApp.Models
 
             [Required]
             public string Name { get; set; }
-            [Required]
-            public DateTime DateOfBirth { get; set; }
-            [Required]
+       
+            public DateTime? DateOfBirth { get; set; }
+        
             public int Age { get; set; }
-            [Required]
-            public int EstimatedAge { get; set; }
-            [Required]
+   
+            public int? EstimatedAge { get; set; }
+
             public string Description { get; set; }
             [Required]
             public string TypeOfAnimal { get; set; }
-            [Required]
+
             public string Breed { get; set; }
             [Required]
             public string Gender { get; set; }
@@ -40,6 +40,8 @@ namespace UI.ASMApp.Models
             public bool CompatibleWithKids { get; set; }
             [Required]
             public string ReasonOfDistancing { get; set; }
+      /*  [Required]
+            public bool Adoptable { get; set; }*/
 
             public ICollection<Treatment> Treatments { get; set; }
             public ICollection<Comment> Comments { get; set; }

@@ -61,9 +61,7 @@ namespace UI.ASMApp.Controllers
         public ActionResult Create(CreateResidenceViewModel model)
         {
             
-            List<Animal> lists = _animalRepository.GetAllAnimals().ToList();
-            var model = lists;
-            return View(model);
+
             if (ModelState.IsValid)
             {
 

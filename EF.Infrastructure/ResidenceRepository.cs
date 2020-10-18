@@ -20,7 +20,7 @@ namespace EF.Infrastructure
 
         public IEnumerable<Residence> GetAllResidences()
         {
-            return _context.Residences;
+            return _context.Residences.Include(p => p.Animals);
         }
 
         public Residence GetResidence(int Id)

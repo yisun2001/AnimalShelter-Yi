@@ -21,13 +21,17 @@ namespace UI.ASMApp.Controllers
     {
         private readonly ILogger<HomeController> _logger;
         private readonly IAnimalRepository _animalRepository;
+        private readonly IResidenceRepository _residenceRepository;
+
         private string uploadsFolder;
         private readonly IHostingEnvironment hostingEnvironment;
+        public static bool HasValue;
 
-        public HomeController(ILogger<HomeController> logger, IAnimalRepository animalRepository, IHostingEnvironment hostingEnvironment)
+        public HomeController(ILogger<HomeController> logger, IAnimalRepository animalRepository, IHostingEnvironment hostingEnvironment, IResidenceRepository residenceRepository)
         {
             _logger = logger;
             this._animalRepository = animalRepository;
+            this._residenceRepository = residenceRepository;
             this.hostingEnvironment = hostingEnvironment;
         }
 
@@ -55,7 +59,14 @@ namespace UI.ASMApp.Controllers
         [HttpPost]
         public IActionResult Create(CreateAnimalViewModel model)
         {
-            if (ModelState.IsValid)
+
+
+            if ((model?.DateOfBirth != null && model?.EstimatedAge != null) || (model?.DateOfBirth == null && model?.EstimatedAge == null)) {
+
+                ModelState.AddModelError(nameof(model.EstimatedAge), "Geschatte leeftijd óf leeftijd moet ingevuld worden.");
+            }
+
+                if (ModelState.IsValid)
             {
                 string uniqueFileName = null;
 
@@ -106,6 +117,7 @@ namespace UI.ASMApp.Controllers
                     // which gets saved to the Employees database table
 
                 };
+               
 
                 _animalRepository.CreateAnimal(newAnimal);
                 return RedirectToAction("details", new { id = newAnimal.Id });

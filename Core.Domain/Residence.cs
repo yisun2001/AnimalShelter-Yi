@@ -15,7 +15,7 @@ namespace Core.Domain
         public bool IsIndivudialResidence { get; set; }
 
 
-        public ICollection<Animal> Animals{ get; set; }
+        public ICollection<Animal> Animals { get; set; } = new List<Animal>();
 
         public bool AddAnimal(Animal animal) {
             if (Capacity < MaxCapacity) {

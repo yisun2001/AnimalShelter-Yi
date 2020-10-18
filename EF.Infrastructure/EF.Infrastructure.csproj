@@ -5,6 +5,27 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <Compile Remove="Migrations\20201018194349_initial_updated.cs" />
+    <Compile Remove="Migrations\20201018194349_initial_updated.Designer.cs" />
+    <Compile Remove="Migrations\20201018205646_added_adoptable.cs" />
+    <Compile Remove="Migrations\20201018205646_added_adoptable.Designer.cs" />
+    <Compile Remove="Migrations\20201018205823_updated_initial.cs" />
+    <Compile Remove="Migrations\20201018205823_updated_initial.Designer.cs" />
+    <Compile Remove="Migrations\20201018210022_Updated-Initial.cs" />
+    <Compile Remove="Migrations\20201018210022_Updated-Initial.Designer.cs" />
+    <Compile Remove="Migrations\20201018210110_initial-updated.cs" />
+    <Compile Remove="Migrations\20201018210110_initial-updated.Designer.cs" />
+    <Compile Remove="Migrations\20201018212200_initial_updated.cs" />
+    <Compile Remove="Migrations\20201018212200_initial_updated.Designer.cs" />
+    <Compile Remove="Migrations\20201018212614_hello.cs" />
+    <Compile Remove="Migrations\20201018212614_hello.Designer.cs" />
+    <Compile Remove="Migrations\20201018212801_Initial.cs" />
+    <Compile Remove="Migrations\20201018212801_Initial.Designer.cs" />
+    <Compile Remove="Migrations\20201018213526_initial_updated.cs" />
+    <Compile Remove="Migrations\20201018213526_initial_updated.Designer.cs" />
+  </ItemGroup>
+
+  <ItemGroup>
     <PackageReference Include="Microsoft.EntityFrameworkCore" Version="3.1.8" />
     <PackageReference Include="Microsoft.EntityFrameworkCore.SqlServer" Version="3.1.8" />
     <PackageReference Include="Microsoft.EntityFrameworkCore.Tools" Version="3.1.8">
@@ -16,10 +37,6 @@
   <ItemGroup>
     <ProjectReference Include="..\Core.DomainServices\Core.DomainServices.csproj" />
     <ProjectReference Include="..\Core.Domain\Core.Domain.csproj" />
-  </ItemGroup>
-
-  <ItemGroup>
-    <Folder Include="Migrations\" />
   </ItemGroup>
 
 </Project>

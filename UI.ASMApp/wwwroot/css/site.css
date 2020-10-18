@@ -27,10 +27,20 @@ logo_top:hover {
 }
 
 .btn-primary {
-  color: #fff;
-  background-color: #1b6ec2;
-  border-color: #1861ac;
+    color: #fff;
+    background-color: 8CD638!important;
+    border-color: 8CD638!important;
 }
+
+.btn-danger {
+    color: #fff;
+    background-color: C458D6 !important;
+    border-color: C458D6 !important;
+}
+
+    .btn-primary:hover {
+        background-color: 2DACD6;
+    }
 
 .nav-pills .nav-link.active, .nav-pills .show > .nav-link {
   color: #fff;
@@ -60,10 +70,7 @@ html {
   box-shadow: 0 .25rem .75rem rgba(0, 0, 0, .05);
 }
 
-button.accept-policy {
-  font-size: 1rem;
-  line-height: inherit;
-}
+
 
 /* Sticky footer styles
 -------------------------------------------------- */

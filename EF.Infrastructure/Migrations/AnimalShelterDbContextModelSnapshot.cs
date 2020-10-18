@@ -30,7 +30,6 @@ namespace EF.Infrastructure.Migrations
                         .HasColumnType("int");
 
                     b.Property<string>("Breed")
-                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<int?>("ClientNumber")
@@ -45,7 +44,7 @@ namespace EF.Infrastructure.Migrations
                     b.Property<DateTime>("DateOfArrival")
                         .HasColumnType("datetime2");
 
-                    b.Property<DateTime>("DateOfBirth")
+                    b.Property<DateTime?>("DateOfBirth")
                         .HasColumnType("datetime2");
 
                     b.Property<DateTime?>("DateOfDeath")
@@ -55,7 +54,7 @@ namespace EF.Infrastructure.Migrations
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<int>("EstimatedAge")
+                    b.Property<int?>("EstimatedAge")
                         .HasColumnType("int");
 
                     b.Property<string>("Gender")
@@ -73,7 +72,6 @@ namespace EF.Infrastructure.Migrations
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("ReasonOfDistancing")
-                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<int?>("ResidenceId")
@@ -191,7 +189,13 @@ namespace EF.Infrastructure.Migrations
                     b.Property<DateTime>("DateOfBirth")
                         .HasColumnType("datetime2");
 
+                    b.Property<string>("Password")
+                        .HasColumnType("nvarchar(max)");
+
                     b.Property<string>("PhoneNumber")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("UserName")
                         .HasColumnType("nvarchar(max)");
 
                     b.HasKey("ClientNumber");
@@ -291,6 +295,9 @@ namespace EF.Infrastructure.Migrations
                     b.Property<string>("Description")
                         .HasColumnType("nvarchar(max)");
 
+                    b.Property<int?>("TreatmentExecutedbyClientNumber")
+                        .HasColumnType("int");
+
                     b.Property<int>("TypeOfTreatment")
                         .HasColumnType("int");
 
@@ -300,6 +307,8 @@ namespace EF.Infrastructure.Migrations
 
                     b.HasIndex("Id")
                         .IsUnique();
+
+                    b.HasIndex("TreatmentExecutedbyClientNumber");
 
                     b.ToTable("Treatments");
                 });
@@ -401,6 +410,10 @@ namespace EF.Infrastructure.Migrations
                         .HasForeignKey("AnimalId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
+
+                    b.HasOne("Core.Domain.Client", "TreatmentExecutedby")
+                        .WithMany()
+                        .HasForeignKey("TreatmentExecutedbyClientNumber");
                 });
 #pragma warning restore 612, 618
         }

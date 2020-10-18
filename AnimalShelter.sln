@@ -5,11 +5,11 @@ VisualStudioVersion = 16.0.30413.136
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "UI.ASMApp", "UI.ASMApp\UI.ASMApp.csproj", "{16F00937-1A5B-48E6-B260-C5941E181A03}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Core.DomainServices", "Core.DomainServices\Core.DomainServices.csproj", "{9152F2B4-9FF1-4B65-A079-F55A6DB1ABE5}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Core.DomainServices", "Core.DomainServices\Core.DomainServices.csproj", "{9152F2B4-9FF1-4B65-A079-F55A6DB1ABE5}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EF.Infrastructure", "EF.Infrastructure\EF.Infrastructure.csproj", "{738548E5-48DF-470C-BF4D-3BD754DEA87D}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "EF.Infrastructure", "EF.Infrastructure\EF.Infrastructure.csproj", "{738548E5-48DF-470C-BF4D-3BD754DEA87D}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Core.Domain", "Core.Domain\Core.Domain.csproj", "{878B4974-D99F-4497-84A7-531D70CA28F0}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Core.Domain", "Core.Domain\Core.Domain.csproj", "{878B4974-D99F-4497-84A7-531D70CA28F0}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

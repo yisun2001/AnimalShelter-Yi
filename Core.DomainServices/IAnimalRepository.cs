@@ -15,5 +15,7 @@ namespace Core.DomainServices
         Animal CreateAnimal(Animal animal);
 
         Animal UpdateAnimal(Animal animal);
+
+
     }
 }

@@ -188,4 +188,5 @@ C:\Users\ys200\Desktop\to do\AnimalShelter\UI.ASMApp\obj\Debug\netcoreapp3.1\Raz
 C:\Users\ys200\Desktop\to do\AnimalShelter\UI.ASMApp\obj\Debug\netcoreapp3.1\Razor\Views\Residence\Index.cshtml.g.cs
 C:\Users\ys200\Desktop\to do\AnimalShelter\UI.ASMApp\obj\Debug\netcoreapp3.1\Razor\Views\Residence\Details.cshtml.g.cs
 C:\Users\ys200\Desktop\to do\AnimalShelter\UI.ASMApp\obj\Debug\netcoreapp3.1\Razor\Views\Residence\Edit.cshtml.g.cs
-C:\Users\ys200\Desktop\to do\AnimalShelter\UI.ASMApp\obj\Debug\netcoreapp3.1\Razor\Views\Home\Treatments\Create.cshtml.g.cs
+C:\Users\ys200\Desktop\to do\AnimalShelter\UI.ASMApp\obj\Debug\netcoreapp3.1\Razor\Views\Comment\Create.cshtml.g.cs
+C:\Users\ys200\Desktop\to do\AnimalShelter\UI.ASMApp\obj\Debug\netcoreapp3.1\Razor\Views\Treatment\Create.cshtml.g.cs

@@ -5,6 +5,21 @@
 @{ ViewData["Title"] = "Login"; }
 <h1>@ViewData["Title"]</h1>
 
-<p>Login or register</p>
+<p>Login</p>
+
+<div class="card-deck">
+
+
+        <div class="card m-3" style="min-width: 18rem; max-width:70%">
+            <div class="card-header">
+                <h3 class="text-center">Login with your account</h3>
+            </div>
+           
+            <div class="card-footer text-center">
+                <a asp-controller="login" asp-action="register"  class="btn btn-primary m-1">Register</a>
+
+            </div>
+        </div>
+</div>
 
 

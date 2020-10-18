@@ -32,8 +32,9 @@ namespace UI.ASMApp
             services.AddControllersWithViews();
             services.AddScoped<IAnimalRepository, AnimalRepository>();
             services.AddScoped<IResidenceRepository, ResidenceRepository>();
-            /*services.AddScoped<ITreatmentRepository, TreatmentRepository>();*/
-            
+            services.AddScoped<ITreatmentRepository, TreatmentRepository>();
+            services.AddScoped<ICommentRepository, CommentRepository>();
+
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

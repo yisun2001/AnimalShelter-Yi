@@ -26,6 +26,10 @@ namespace UI.ASMApp.Controllers
         {
             return View();
         }
+
+        public IActionResult Register()
+        { return View();
+        }
     }
 }
 

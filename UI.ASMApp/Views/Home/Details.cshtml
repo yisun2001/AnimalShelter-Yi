@@ -38,11 +38,14 @@
                     <p>@Model?.Description</p>
                 </div>
 
-                <div class="text-center">
-
-                        <a asp-action="create" asp-controller="treatment" asp-route-id="@Model?.Id" class="btn btn-primary">Add Treatment</a>
-
-                        <a asp-action="add" asp-controller="comment" asp-route-id="@Model?.Id" class="btn btn-primary">Add Comment</a>
+                <div class="text-center row">
+                    <div class="col-md-6">
+                        <h1>@Model?.Treatments</h1>
+                    <a asp-action="create" asp-controller="treatment" asp-route-id="@Model?.Id" class="btn btn-primary">Add Treatment</a>
+                    </div>
+                    <div class="col-md-6">
+                        <a asp-action="create" asp-controller="comment" asp-route-id="@Model?.Id" class="btn btn-primary">Add Comment</a>
+                    </div>
                 </div>
 
                     <div class="card-footer text-center">
@@ -58,8 +61,8 @@
 
 
                     </div>
-               
-        </div>
+
+                </div>
 
 
     </div>

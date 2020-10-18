@@ -19,29 +19,29 @@ namespace UI.ASMApp.Controllers
 {
     public class TreatmentController : Controller
     {
-        private readonly ILogger<HomeController> _logger;
+        private readonly ILogger<TreatmentController> _logger;
+        private readonly ITreatmentRepository _treatmentRepository;
         private readonly IAnimalRepository _animalRepository;
-        private string uploadsFolder;
-        private readonly IHostingEnvironment hostingEnvironment;
 
-        public TreatmentController(ILogger<HomeController> logger, IAnimalRepository animalRepository, IHostingEnvironment hostingEnvironment)
+
+        public TreatmentController(ILogger<TreatmentController> logger, ITreatmentRepository treatmentRepository, IAnimalRepository animalRepository)
         {
             _logger = logger;
+            this._treatmentRepository = treatmentRepository;
             this._animalRepository = animalRepository;
-            this.hostingEnvironment = hostingEnvironment;
         }
 
         [HttpGet]
         public IActionResult Index()
         {
-            List<Animal> lists = _animalRepository.GetAllAnimals().ToList();
+            List<Treatment> lists = _treatmentRepository.GetAllTreatments().ToList();
             var model = lists;
             return View(model);
         }
         [HttpGet]
         public IActionResult Details(int id)
         {
-            var model = _animalRepository.GetAnimal(id);
+            var model = _treatmentRepository.GetTreatment(id);
             return View(model);
         }
 
@@ -51,7 +51,7 @@ namespace UI.ASMApp.Controllers
 
             return View();
         }
-
+/*
         [HttpPost]
         public IActionResult Create(Treatment model, Animal animal)
         {
@@ -77,6 +77,79 @@ namespace UI.ASMApp.Controllers
             }
 
             return View();
+        }*/
+
+        [HttpPost]
+        public IActionResult Create(CreateTreatmentViewModel model, int Id)
+        {
+
+            var animal = _animalRepository.GetAnimal(Id);
+
+            if (model.TypeOfTreatment == TypeOfTreatment.Castration || model.TypeOfTreatment == TypeOfTreatment.Sterilization) 
+            {
+
+                if (animal.Age < 0.5)
+                {
+
+                    ModelState.AddModelError(nameof(model.TypeOfTreatment), "De behandeling mag pas na de leeftijd van 6 maanden geëxcuteerd worden.");
+                }
+            }
+            
+
+            if (ModelState.IsValid)
+            {
+
+                if (model.DateOfTime < animal.DateOfArrival) {
+                    ModelState.AddModelError(nameof(model.DateOfTime), "Datum van behandeling is vóór het moment van arriveren.");
+                }
+                
+                if (model.DateOfTime > animal.DateOfDeath) {
+                    ModelState.AddModelError(nameof(model.DateOfTime), "Datum van behandeling is na het overlijden van het dier.");
+
+                    switch (model.TypeOfTreatment)
+                    {
+                        case TypeOfTreatment.Vaccination:
+                            ModelState.AddModelError(nameof(model.Description), "Bij deze behandeling is een omschrijving verplicht.");
+                            break;
+
+                        case TypeOfTreatment.Operation:
+                            ModelState.AddModelError(nameof(model.Description), "Bij deze behandeling is een omschrijving van de type operatie benodigd.");
+                            break;
+
+                        case TypeOfTreatment.Chipping:
+                            ModelState.AddModelError(nameof(model.Description), "Bij deze behandeling is een chipcode (GUID) verplicht.");
+                            break;
+
+                        case TypeOfTreatment.Euthanasia:
+                            ModelState.AddModelError(nameof(model.Description), "Bij deze behandeling is een beschreven reden nodig.");
+                            break;
+                    }
+                }
+
+
+                Treatment newTreatment = new Treatment
+                {
+
+                    TypeOfTreatment = model.TypeOfTreatment,
+                    Description = model.Description,
+                    TreatmentExecutedby = model.TreatmentExecutedby,
+                    Costs = model.Costs,
+                    AgeRequirement = model.AgeRequirement,
+                    DateOfTime = model.DateOfTime,
+
+
+                };
+                try { 
+                _treatmentRepository.CreateTreatment(newTreatment, Id);
+                return RedirectToAction("details", new { id = newTreatment.Id });
+                }
+                catch
+                {
+                    return View();
+                }
+            }
+
+            return View();
         }
 
 
@@ -86,23 +159,23 @@ namespace UI.ASMApp.Controllers
         public IActionResult Delete(int id)
         {
             
-            _animalRepository.DeleteAnimal(id);
+            _treatmentRepository.DeleteTreatment(id);
             return RedirectToAction("index");
         }
 
         [HttpGet]
         public ViewResult Edit(int id)
         {
-            Animal animal = _animalRepository.GetAnimal(id);
-            return View(animal);
+            Treatment treatment = _treatmentRepository.GetTreatment(id);
+            return View(treatment);
         }
 
         [HttpPost]
-        public IActionResult Edit(Animal animal)
+        public IActionResult Edit(Treatment treatment, int Id)
         {
             if (ModelState.IsValid)
             {
-                _animalRepository.UpdateAnimal(animal);
+                _treatmentRepository.UpdateTreatment(treatment, Id);
                 return RedirectToAction("index");
             }
             return View();

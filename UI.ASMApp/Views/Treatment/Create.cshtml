@@ -1,6 +1,6 @@
 ﻿@model Treatment
 
-<form enctype="multipart/form-data" asp-controller="treatment" asp-action="Add" method="post" class="mt-3">
+<form enctype="multipart/form-data" asp-controller="treatment" asp-action="Create" method="post" class="mt-3">
     <!--Section: Contact v.2-->
 
     <section class="mb-4">
@@ -8,12 +8,12 @@
         <!--Section heading--> <div class="col-sm-2">
             <a asp-controller="home" asp-action="index" class="btn btn-primary">Back</a>
         </div>
-        <h2 class="h1-responsive font-weight-bold text-center my-4">Add an Animal</h2>
+        <h2 class="h1-responsive font-weight-bold text-center my-4">Add a Treatment</h2>
         <!--Section description-->
 
 
         <p class="text-center w-responsive mx-auto mb-5">
-            Fill in the forms to add a treatment to Animal @Model.Animal
+            Fill in the forms to add a treatment to Animal @Model?.Animal
         </p>
     </section>
 
@@ -23,14 +23,24 @@
         <div class="col-md-6">
             <div class="md-form mb-0">
                 <label asp-for="TypeOfTreatment" class=" col-form-label"></label>
-                <input asp-for="TypeOfTreatment" class="form-control" required placeholder="Type Of Treatment">
+                <select asp-for="TypeOfTreatment " class="form-control" placeholder="Treatment Type">
+                    <option value="Sterilization">Sterilization</option>
+                    <option value="Castration">Castration</option>
+                    <option value="Vaccination">Vaccination</option>
+                    <option value="Operation">Operation</option>
+                    <option value="Chipping">Chipping</option>
+                    <option value="Euthanasia">Euthanasia</option>
+                </select>
                 <span asp-validation-for="TypeOfTreatment " class="text-danger"></span>
             </div>
         </div>
+
+
+
         <div class="col-md-6">
             <div class="md-form mb-0">
                 <label asp-for="Description" class=" col-form-label"></label>
-                <textarea asp-for="Description" class="form-control" required placeholder="Description"> </textarea>
+                <textarea asp-for="Description" class="form-control"  placeholder="Description"> </textarea>
                 <span asp-validation-for="Description" class="text-danger"></span>
             </div>
         </div>
@@ -41,14 +51,14 @@
         <div class="col-md-6">
             <div class="md-form mb-0">
                 <label asp-for="Costs" class=" col-form-label"></label>
-                <input asp-for="Costs" class="form-control" required placeholder="Costs">
+                <input asp-for="Costs" class="form-control"  placeholder="Costs">
                 <span asp-validation-for="Costs" class="text-danger"></span>
             </div>
         </div>
         <div class="col-md-6">
             <div class="md-form mb-0">
                 <label asp-for="AgeRequirement" class=" col-form-label"></label>
-                <input asp-for="AgeRequirement" class="form-control" required placeholder="Required Age for Treatment">
+                <input asp-for="AgeRequirement" class="form-control"  placeholder="Required Age for Treatment">
                 <span asp-validation-for="AgeRequirement" class="text-danger"></span>
             </div>
         </div>
@@ -60,7 +70,7 @@
         <div class="col-md-12">
             <div class="md-form mb-0">
                 <label asp-for="DateOfTime" class=" col-form-label"></label>
-                <input asp-for="DateOfTime" class="form-control" required placeholder="DateOfTime"> 
+                <input asp-for="DateOfTime" class="form-control"  placeholder="DateOfTime"> 
                 <span asp-validation-for="DateOfTime" class="text-danger"></span>
             </div>
         </div>
@@ -71,7 +81,7 @@
     <div class="form-group row">
 
         <div class="col-sm-2">
-            <button type="submit" class="btn btn-primary">Add Treatment to @Model.Animal</button>
+            <button type="submit" class="btn btn-primary">Add Treatment to @Model?.Animal</button>
         </div>
     </div>
     

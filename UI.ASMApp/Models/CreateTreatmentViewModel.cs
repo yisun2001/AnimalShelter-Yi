@@ -1,17 +1,20 @@
-﻿using System;
+﻿using Core.Domain;
+using Microsoft.AspNetCore.Http;
+using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
-using System.Text;
+using System.Net.Http;
 
-namespace Core.Domain
+namespace UI.ASMApp.Models
 {
-    public class Treatment
+    public class CreateTreatmentViewModel
     {
-        public int Id { get; set; }
+
         public TypeOfTreatment TypeOfTreatment { get; set; }
         public string Description { get; set; }
 
-        [Column(TypeName ="decimal")]
+        [Column(TypeName = "decimal")]
         public decimal Costs { get; set; }
 
         public Client TreatmentExecutedby { get; set; }
@@ -21,4 +24,10 @@ namespace Core.Domain
         public Animal Animal { get; set; }
         public int AnimalId { get; set; }
     }
-}
+    }
+
+
+
+
+
+

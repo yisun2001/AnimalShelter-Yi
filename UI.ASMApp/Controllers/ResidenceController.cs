@@ -24,11 +24,12 @@ namespace UI.ASMApp.Controllers
 
         private readonly ILogger<ResidenceController> _logger;
         private readonly IResidenceRepository _residenceRepository;
-
-        public ResidenceController(ILogger<ResidenceController> logger, IResidenceRepository residenceRepository)
+        private readonly IAnimalRepository _animalRepository;
+        public ResidenceController(ILogger<ResidenceController> logger, IResidenceRepository residenceRepository, IAnimalRepository animalRepository)
         {
             _logger = logger;
             this._residenceRepository = residenceRepository;
+            this._animalRepository = animalRepository;
         }
 
         // GET: ResidenceController
@@ -59,6 +60,10 @@ namespace UI.ASMApp.Controllers
         [HttpPost]
         public ActionResult Create(CreateResidenceViewModel model)
         {
+            
+            List<Animal> lists = _animalRepository.GetAllAnimals().ToList();
+            var model = lists;
+            return View(model);
             if (ModelState.IsValid)
             {
 

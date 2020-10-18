@@ -41,7 +41,24 @@ namespace Core.Domain
         public string ReasonOfDistancing { get; set; }
 
         public ICollection<Treatment> Treatments { get; set; }
+
+        public void AddTreatment(Treatment treatment)
+        {
+
+            Treatments.Add(treatment);
+        }
+
+
+
         public ICollection<Comment> Comments { get; set; }
+
+
+        public void AddComment(Comment comment)
+        {
+
+            Comments.Add(comment);
+        }
+
 
         public Client AdoptedBy { get; set; }
         public int? ClientNumber { get; set; }
@@ -62,6 +79,5 @@ namespace Core.Domain
 
             }
         }
-
+   }
     }
-}

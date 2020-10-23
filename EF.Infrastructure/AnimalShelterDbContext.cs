@@ -48,7 +48,7 @@ namespace EF.Infrastructure
             modelBuilder.Entity<Comment>().HasIndex(o => o.CommentId).IsUnique();
             modelBuilder.Entity<Comment>().HasKey(o => o.CommentId);
             modelBuilder.Entity<Comment>().HasOne<Animal>(s => s.Animal).WithMany(g => g.Comments).HasForeignKey(s => s.AnimalId);
-            modelBuilder.Entity<Comment>().HasOne<Client>(s => s.CommentMadeBy).WithMany(g => g.Comments).HasForeignKey(s => s.ClientNumber);
+            modelBuilder.Entity<Comment>().HasOne<Volunteer>(s => s.CommentMadeBy).WithMany(g => g.Comments).HasForeignKey(s => s.VolunteerId);
 
 
             modelBuilder.Entity<Residence>().HasIndex(o => o.Id).IsUnique();

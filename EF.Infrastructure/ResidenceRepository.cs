@@ -3,6 +3,7 @@ using Core.DomainServices;
 using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
+using System.Linq;
 using System.Text;
 
 
@@ -17,16 +18,30 @@ namespace EF.Infrastructure
             this._context = context;
         }
 
-
         public IEnumerable<Residence> GetAllResidences()
         {
-            return _context.Residences.Include(p => p.Animals);
+            return _context.Residences;
         }
-
+        public ICollection<Animal> GetResidenceAnimals(int Id)
+        {
+            var list = _context.Animals.Where(a => a.ResidenceId == Id).ToList();
+            return list;
+        }
         public Residence GetResidence(int Id)
         {
-            return _context.Residences.Find(Id);
+            var residence = _context.Residences.Find(Id);
+            if (residence == null)
+            {
+                return residence;
+            }
+            else 
+            {
+                residence.Animals = GetResidenceAnimals(Id);
+                return residence;
+            }
         }
+
+       
 
         public Residence DeleteResidence(int Id)
         {
@@ -51,7 +66,5 @@ namespace EF.Infrastructure
             _context.SaveChanges();
             return residence;
         }
-
-       
     }
 }

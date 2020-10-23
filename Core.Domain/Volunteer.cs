@@ -12,6 +12,7 @@ namespace Core.Domain
         public string PhoneNumber { get; set; }
         public DateTime DateOfBirth { get; set; }
 
+        public ICollection<Comment> Comments { get; set; }
         public ICollection<Animal> Animals { get; set; }
 
     }

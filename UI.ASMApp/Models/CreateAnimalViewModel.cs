@@ -22,8 +22,8 @@ namespace UI.ASMApp.Models
 
             public string Description { get; set; }
             [Required]
-            public string TypeOfAnimal { get; set; }
-
+            public string AnimalType { get; set; }
+       
             public string Breed { get; set; }
             [Required]
             public string Gender { get; set; }
@@ -40,9 +40,8 @@ namespace UI.ASMApp.Models
             public bool CompatibleWithKids { get; set; }
             [Required]
             public string ReasonOfDistancing { get; set; }
-      /*  [Required]
-            public bool Adoptable { get; set; }*/
-
+            public bool Adoptable { get; set; }
+    
             public ICollection<Treatment> Treatments { get; set; }
             public ICollection<Comment> Comments { get; set; }
 

@@ -15,7 +15,7 @@ namespace EF.Infrastructure.Migrations
         {
 #pragma warning disable 612, 618
             modelBuilder
-                .HasAnnotation("ProductVersion", "3.1.8")
+                .HasAnnotation("ProductVersion", "3.1.9")
                 .HasAnnotation("Relational:MaxIdentifierLength", 128)
                 .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
@@ -26,7 +26,13 @@ namespace EF.Infrastructure.Migrations
                         .HasColumnType("int")
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
+                    b.Property<bool>("Adoptable")
+                        .HasColumnType("bit");
+
                     b.Property<int>("Age")
+                        .HasColumnType("int");
+
+                    b.Property<int?>("AgeEstimate")
                         .HasColumnType("int");
 
                     b.Property<string>("Breed")
@@ -35,13 +41,7 @@ namespace EF.Infrastructure.Migrations
                     b.Property<int?>("ClientNumber")
                         .HasColumnType("int");
 
-                    b.Property<bool>("CompatibleWithKids")
-                        .HasColumnType("bit");
-
                     b.Property<DateTime?>("DateOfAdoption")
-                        .HasColumnType("datetime2");
-
-                    b.Property<DateTime>("DateOfArrival")
                         .HasColumnType("datetime2");
 
                     b.Property<DateTime?>("DateOfBirth")
@@ -50,32 +50,36 @@ namespace EF.Infrastructure.Migrations
                     b.Property<DateTime?>("DateOfDeath")
                         .HasColumnType("datetime2");
 
+                    b.Property<DateTime>("DateOfEntry")
+                        .HasColumnType("datetime2");
+
                     b.Property<string>("Description")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<int?>("EstimatedAge")
-                        .HasColumnType("int");
-
-                    b.Property<string>("Gender")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("ImagePath")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<bool>("IsNeutered")
+                    b.Property<bool>("GoesWellWithKids")
                         .HasColumnType("bit");
 
                     b.Property<string>("Name")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
+                    b.Property<bool>("Neutered")
+                        .HasColumnType("bit");
+
+                    b.Property<string>("Photo")
+                        .HasColumnType("nvarchar(max)");
+
                     b.Property<string>("ReasonOfDistancing")
+                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<int?>("ResidenceId")
                         .HasColumnType("int");
+
+                    b.Property<string>("Sex")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("TypeOfAnimal")
                         .IsRequired()
@@ -111,7 +115,7 @@ namespace EF.Infrastructure.Migrations
                     b.Property<int>("ClientNumber")
                         .HasColumnType("int");
 
-                    b.Property<bool>("IsNeutered")
+                    b.Property<bool>("Neutered")
                         .HasColumnType("bit");
 
                     b.Property<string>("TypeOfAnimal")
@@ -189,13 +193,13 @@ namespace EF.Infrastructure.Migrations
                     b.Property<DateTime>("DateOfBirth")
                         .HasColumnType("datetime2");
 
-                    b.Property<string>("Password")
+                    b.Property<string>("Email")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Name")
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("PhoneNumber")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("UserName")
                         .HasColumnType("nvarchar(max)");
 
                     b.HasKey("ClientNumber");
@@ -219,23 +223,23 @@ namespace EF.Infrastructure.Migrations
                     b.Property<int>("AnimalId")
                         .HasColumnType("int");
 
-                    b.Property<int>("ClientNumber")
+                    b.Property<DateTime>("Date")
+                        .HasColumnType("datetime2");
+
+                    b.Property<int>("VolunteerId")
                         .HasColumnType("int");
 
-                    b.Property<string>("CommentText")
+                    b.Property<string>("comment")
                         .HasColumnType("nvarchar(max)");
-
-                    b.Property<DateTime>("DateTime")
-                        .HasColumnType("datetime2");
 
                     b.HasKey("CommentId");
 
                     b.HasIndex("AnimalId");
 
-                    b.HasIndex("ClientNumber");
-
                     b.HasIndex("CommentId")
                         .IsUnique();
+
+                    b.HasIndex("VolunteerId");
 
                     b.ToTable("Comments");
                 });
@@ -247,20 +251,20 @@ namespace EF.Infrastructure.Migrations
                         .HasColumnType("int")
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
-                    b.Property<string>("AnimalType")
-                        .HasColumnType("nvarchar(max)");
-
                     b.Property<int>("Capacity")
                         .HasColumnType("int");
 
-                    b.Property<bool>("IsIndivudialResidence")
+                    b.Property<string>("CatOrDogResidence")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("IndividueelOfGroup")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<bool>("Neutered")
                         .HasColumnType("bit");
 
-                    b.Property<bool>("IsNeutered")
-                        .HasColumnType("bit");
-
-                    b.Property<int>("MaxCapacity")
-                        .HasColumnType("int");
+                    b.Property<string>("Sex")
+                        .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("Shelter")
                         .HasColumnType("nvarchar(max)");
@@ -295,10 +299,7 @@ namespace EF.Infrastructure.Migrations
                     b.Property<string>("Description")
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<int?>("TreatmentExecutedbyClientNumber")
-                        .HasColumnType("int");
-
-                    b.Property<int>("TypeOfTreatment")
+                    b.Property<int>("TOP")
                         .HasColumnType("int");
 
                     b.HasKey("Id");
@@ -307,8 +308,6 @@ namespace EF.Infrastructure.Migrations
 
                     b.HasIndex("Id")
                         .IsUnique();
-
-                    b.HasIndex("TreatmentExecutedbyClientNumber");
 
                     b.ToTable("Treatments");
                 });
@@ -396,9 +395,9 @@ namespace EF.Infrastructure.Migrations
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
-                    b.HasOne("Core.Domain.Client", "CommentMadeBy")
+                    b.HasOne("Core.Domain.Volunteer", "CommentMadeBy")
                         .WithMany("Comments")
-                        .HasForeignKey("ClientNumber")
+                        .HasForeignKey("VolunteerId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
                 });
@@ -410,10 +409,6 @@ namespace EF.Infrastructure.Migrations
                         .HasForeignKey("AnimalId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
-
-                    b.HasOne("Core.Domain.Client", "TreatmentExecutedby")
-                        .WithMany()
-                        .HasForeignKey("TreatmentExecutedbyClientNumber");
                 });
 #pragma warning restore 612, 618
         }

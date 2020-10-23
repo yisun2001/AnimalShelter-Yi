@@ -3,6 +3,7 @@ using Core.DomainServices;
 using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
+using System.Linq;
 using System.Text;
 
 namespace EF.Infrastructure
@@ -14,16 +15,6 @@ namespace EF.Infrastructure
         public AnimalRepository(AnimalShelterDbContext context)
         {
             this._context = context;
-        }
-
-        public IEnumerable<Animal> GetAllAnimals()
-        {
-            return _context.Animals;
-        }
-
-        public Animal GetAnimal(int Id)
-        {
-            return _context.Animals.Find(Id);
         }
 
         public Animal CreateAnimal(Animal animal)
@@ -42,11 +33,40 @@ namespace EF.Infrastructure
             return animal;
         }
 
+        public IEnumerable<Animal> GetAllAnimals()
+        {
+            return _context.Animals;
+        }
+
+        public Animal GetAnimal(int Id)
+        {
+            var animal = _context.Animals.Find(Id);
+            animal.Comments = GetAnimalComments(Id);
+            animal.Treatments = GetAnimalTreatment(Id);
+            return animal;
+        }
+
+        public ICollection<Comment> GetAnimalComments(int Id)
+        {
+            //var blogs = context.Blogs
+            //.Include(blog => blog.Posts)
+            //    .ThenInclude(post => post.Author)
+            //    .ToList();
+
+            var list = _context.Comments.Where(a => a.AnimalId == Id).ToList();
+            return list;
+        }
+
+        public ICollection<Treatment> GetAnimalTreatment(int Id)
+        {
+            var list = _context.Treatments.Where(a => a.AnimalId == Id).ToList();
+            return list;
+        }
 
         public Animal UpdateAnimal(Animal animal)
         {
-            var anim = _context.Animals.Attach(animal);
-            anim.State = EntityState.Modified;
+            var an = _context.Animals.Attach(animal);
+            an.State = EntityState.Modified;
             _context.SaveChanges();
             return animal;
         }

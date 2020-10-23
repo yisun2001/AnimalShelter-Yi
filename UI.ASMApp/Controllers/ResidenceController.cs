@@ -14,10 +14,11 @@ using System.Diagnostics;
 using Microsoft.Extensions.Hosting.Internal;
 using Microsoft.AspNetCore.Hosting;
 using EF.Infrastructure;
+using Microsoft.AspNetCore.Authorization;
 
 namespace UI.ASMApp.Controllers
 {
-
+    [Authorize(Policy = "Volunteer")]
 
     public class ResidenceController : Controller
     {
@@ -71,10 +72,9 @@ namespace UI.ASMApp.Controllers
 
                     Shelter = model.Shelter,
                     Capacity = model.Capacity,
-                    MaxCapacity = model.MaxCapacity,
                     AnimalType = model.AnimalType,
                     IsNeutered = model.IsNeutered,
-                    IsIndivudialResidence = model.IsIndivudialResidence,
+                    IndividualOrGroup = model.IndividualOrGroup,
                     Animals = model.Animals,
 
                 };
@@ -107,6 +107,8 @@ namespace UI.ASMApp.Controllers
         [HttpPost]
         public IActionResult Edit(Residence residence)
         {
+
+
             if (ModelState.IsValid)
             {
                 _residenceRepository.UpdateResidence(residence);

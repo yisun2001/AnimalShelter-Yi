@@ -26,13 +26,26 @@
                 <span asp-validation-for="Shelter " class="text-danger"></span>
             </div>
         </div>
-        <div class="col-md-6">
+        <div class="col-md-4">
             <div class="md-form mb-0">
-                <label asp-for="MaxCapacity  " class=" col-form-label"></label>
-                <input asp-for="MaxCapacity  " class="form-control" required placeholder="MaxCapacity  ">
-                <span asp-validation-for="MaxCapacity  " class="text-danger"></span>
+                <label asp-for="Capacity  " class=" col-form-label"></label>
+                <input asp-for="Capacity  " class="form-control"  placeholder="MaxCapacity  ">
+                <span asp-validation-for="Capacity  " class="text-danger"></span>
             </div>
         </div>
+
+        <div class="col-md-4">
+            <div class="md-form mb-0">
+                <label asp-for="Gender " class=" col-form-label"></label>
+                <select asp-for="Gender " class="form-control" placeholder="Gender ">
+                    <option value="1">Male</option>
+                    <option value="2">Female</option>
+                    <option value="3">Other</option>
+                </select>
+                <span asp-validation-for="AnimalType " class="text-danger"></span>
+            </div>
+        </div>
+
     </div>
 
     <div class="row">
@@ -41,9 +54,8 @@
             <div class="md-form mb-0">
                 <label asp-for="AnimalType " class=" col-form-label"></label>
                 <select asp-for="AnimalType " class="form-control" required placeholder="AnimalType ">
-                    <option value="dog">Dog</option>
-                    <option value="cat">Cat</option>
-                    <option value="other">Other</option>
+                    <option value="1">Dog</option>
+                    <option value="2">Cat</option>
                 </select>
                 <span asp-validation-for="AnimalType " class="text-danger"></span>
             </div>
@@ -62,10 +74,10 @@
 
         <div class="col-md-4">
             <div class="md-form mb-0">
-                <label asp-for="IsIndivudialResidence " class=" col-form-label"></label>
-                <input asp-for="IsIndivudialResidence " class="form-control" required placeholder="Individual Residence">
+                <label asp-for="IndividualOrGroup " class=" col-form-label"></label>
+                <input asp-for="IndividualOrGroup " class="form-control" required placeholder="Individual Residence">
 
-                <span asp-validation-for="IsIndivudialResidence " class="text-danger"></span>
+                <span asp-validation-for="IndividualOrGroup " class="text-danger"></span>
             </div>
         </div>
     </div>

@@ -1,4 +1,7 @@
 ﻿@model CreateAnimalViewModel
+@inject Core.DomainServices.IResidenceRepository residenceRepository;
+@inject Core.DomainServices.IVolunteerRepository volunteerRepository;
+@inject Core.DomainServices.IClientRepository clientRepository;
 
 <form enctype="multipart/form-data" asp-controller="home" asp-action="Create" method="post" class="mt-3">
     <!--Section: Contact v.2-->
@@ -30,19 +33,18 @@
         <div class="col-md-4">
             <div class="md-form mb-0">
                 <label asp-for="DateOfBirth" class=" col-form-label"></label>
-                <input asp-for="DateOfBirth" class="form-control"  placeholder="DateOfBirth">
-              
+                <input asp-for="DateOfBirth" class="form-control" placeholder="DateOfBirth">
+
                 <span asp-validation-for="DateOfBirth" class="text-danger"></span>
             </div>
         </div>
         <div class="col-md-4">
             <div class="md-form mb-0">
                 <label asp-for="EstimatedAge" class=" col-form-label"></label>
-                <input asp-for="EstimatedAge" class="form-control"  placeholder="EstimatedAge">
-                @*moet niet required zijn, database fixen*@
+                <input asp-for="EstimatedAge" class="form-control" placeholder="EstimatedAge">
                 <span asp-validation-for="EstimatedAge" class="text-danger"></span>
             </div>
-</div>
+        </div>
     </div>
 
 
@@ -62,13 +64,13 @@
 
         <div class="col-md-4">
             <div class="md-form mb-0">
-                <label asp-for="TypeOfAnimal" class=" col-form-label"></label>
-                <select asp-for="TypeOfAnimal" class="form-control" required placeholder="TypeOfAnimal">
-                    <option value="Dog">Dog</option>
-                    <option value="Cat">Cat</option>
-                    <option value="Other">Other</option>
+                <label asp-for="AnimalType" class=" col-form-label"></label>
+                <select asp-for="AnimalType" class="form-control" required placeholder="TypeOfAnimal">
+                    <option value="1">Dog</option>
+                    <option value="2">Cat</option>
+                    <option value="3">Other</option>
                 </select>
-                <span asp-validation-for="TypeOfAnimal" class="text-danger"></span>
+                <span asp-validation-for="AnimalType" class="text-danger"></span>
             </div>
         </div>
         <div class="col-md-4">
@@ -134,24 +136,24 @@
         <div class="col-md-4">
             <div class="md-form mb-0">
                 <label asp-for="IsNeutered" class=" col-form-label"></label>
-                <input asp-for="IsNeutered" class="form-control"  placeholder="IsNeutered">
+                <input asp-for="IsNeutered" class="form-control" placeholder="IsNeutered">
                 <span asp-validation-for="IsNeutered" class="text-danger"></span>
             </div>
         </div>
         <div class="col-md-4">
             <div class="md-form mb-0">
                 <label asp-for="CompatibleWithKids" class=" col-form-label"></label>
-                <input asp-for="CompatibleWithKids" class="form-control"  placeholder="CompatibleWithKids">
+                <input asp-for="CompatibleWithKids" class="form-control" placeholder="CompatibleWithKids">
                 <span asp-validation-for="CompatibleWithKids" class="text-danger"></span>
             </div>
         </div>
-        @*<div class="col-md-4">
+        <div class="col-md-4">
             <div class="md-form mb-0">
                 <label asp-for="Adoptable" class=" col-form-label"></label>
                 <input asp-for="Adoptable" class="form-control" required placeholder="Adoptable">
                 <span asp-validation-for="Adoptable" class="text-danger"></span>
             </div>
-        </div*@
+        </div>
     </div>
 
 
@@ -162,88 +164,65 @@
         <div class="col-md-12">
             <div class="md-form mb-0">
                 <label asp-for="ReasonOfDistancing" class=" col-form-label"></label>
-                <textarea asp-for="ReasonOfDistancing" class="form-control"  placeholder="ReasonOfDistancing"> </textarea>
+                <textarea asp-for="ReasonOfDistancing" class="form-control" placeholder="ReasonOfDistancing"> </textarea>
                 <span asp-validation-for="ReasonOfDistancing" class="text-danger"></span>
             </div>
         </div>
     </div>
-
-    @*<hr />
-
-        <div class="row">
-
-            <div class="col-md-4">
-                <div class="md-form mb-0">
-                    <label asp-for="ClientNumber" class=" col-form-label"></label>
-                    <input asp-for="ClientNumber" class="form-control" placeholder="ClientNumber">
-                    <span asp-validation-for="ClientNumber" class="text-danger"></span>
-                </div>
-            </div>
-            <div class="col-md-4">
-                <div class="md-form mb-0">
-                    <label asp-for="ResidenceId" class=" col-form-label"></label>
-                    <input asp-for="ResidenceId" class="form-control" placeholder="ResidenceId">
-                    <span asp-validation-for="ResidenceId" class="text-danger"></span>
-                </div>
-            </div>
-            <div class="col-md-4">
-                <div class="md-form mb-0">
-                    <label asp-for="VolunteerId" class=" col-form-label"></label>
-                    <input asp-for="VolunteerId" class="form-control" placeholder="VolunteerId">
-                    <span asp-validation-for="VolunteerId" class="text-danger"></span>
-                </div>
-            </div>
-        </div>*@
-
-
-    <div class="row">
-
-        @*<div class="col-md-4">
-            <div class="md-form mb-0">
-                <label asp-for="Volunteer" class=" col-form-label"></label>
-                <input asp-for="Volunteer" class="form-control" placeholder="Volunteer">
-                <span asp-validation-for="Volunteer" class="text-danger"></span>
-            </div>
-        </div>*@
-        <div class="col-md-8">
-            <div class="md-form mb-0">
-                <label asp-for="Residence" class=" col-form-label"></label>
-                <select asp-for="Residence" class="form-control" asp-items="@ViewBag.Residences" placeholder="Residence"> </select>
-                <span asp-validation-for="Residence" class="text-danger"></span>
-            </div>
-       @* </div>
-        <div class="col-md-4">
-            <div class="md-form mb-0">
-                <label asp-for="AdoptedBy" class=" col-form-label"></label>
-                <input asp-for="AdoptedBy" class="form-control" placeholder="AdoptedBy">
-                <span asp-validation-for="AdoptedBy" class="text-danger"></span>
-            </div>
-        </div>*@
-    </div>
+    <div class="form-group row">
+        <label asp-for="ClientNumber" class="col-sm-2 col-form-label"></label>
+        <div class="col-sm-10">
+            <select asp-for="ClientNumber" name="ClientNumber" id="ClientNumber">
+                @foreach (var client in clientRepository.GetAllClients())
+                {
+    <option value=@client.ClientNumber>@client.ClientNumber .@client.Name</option>
+}
+                <option value=@null>No Client</option>
+            </select>
+            <span asp-validation-for="ClientNumber" class="text-danger"></span>
         </div>
-
-
+    </div>
+    <div class="form-group row">
+        <label asp-for="VolunteerId" class="col-sm-2 col-form-label"></label>
+        <div class="col-sm-10">
+            <select asp-for="VolunteerId" name="VolunteerId" id="VolunteerId">
+                @foreach (var vol in volunteerRepository.GetAllVolunteers())
+                {
+    <option value=@vol.VolunteerId>@vol.VolunteerId .@vol.Name</option>
+}
+                <option value=@null>No Volunteer</option>
+            </select>
+            <span asp-validation-for="VolunteerId" class="text-danger"></span>
+        </div>
+    </div>
+    <div class="form-group row">
+        <label asp-for="ResidenceId" class="col-sm-2 col-form-label"></label>
+        <div class="col-sm-10">
+            <select asp-for="ResidenceId" name="ResidenceId" id="ResidenceId">
+                @foreach (var res in residenceRepository.GetAllResidences())
+                {
+    <option value=@res.Id>@res.Id .@res.Shelter</option>
+}
+                <option value=0>No residence</option>
+            </select>
+            <span asp-validation-for="ResidenceId" class="text-danger"></span>
+        </div>
+    </div>
     <div asp-validation-summary="All" class="text-danger"></div>
     <div class="form-group row">
-
-        <div class="col-sm-2">
+        <div class="col-sm-10">
             <button type="submit" class="btn btn-primary">Create</button>
         </div>
     </div>
 
     @section Scripts {
         <script>
-            $(document).ready(function () {
+    $(document).ready(function () {
 
                 $('custom-file-input').on("change", function () {
                     var fileName = $(this).val().split("\\").pop();
                     $(this).next('.custom-file-label').html(fileName);
                 })
-            });
-
-
-
-        </script>
+            });</script>
     }
 </form>
-

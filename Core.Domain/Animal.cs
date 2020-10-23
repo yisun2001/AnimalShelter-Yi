@@ -1,5 +1,4 @@
-﻿using Microsoft.AspNetCore.Http;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
@@ -21,46 +20,29 @@ namespace Core.Domain
         [Required]
         public string Description { get; set; }
         [Required]
-        public string TypeOfAnimal { get; set; }
+        public string AnimalType { get; set; }
 
-        public string Breed { get; set; }
+        public string? Breed { get; set; }
         [Required]
         public string Gender { get; set; }
 
         public string ImagePath { get; set; }
-
         [Required]
         public DateTime DateOfArrival { get; set; }
+
         public DateTime? DateOfAdoption { get; set; }
         public DateTime? DateOfDeath { get; set; }
         [Required]
         public bool IsNeutered { get; set; }
         [Required]
         public bool CompatibleWithKids { get; set; }
-        //[Required]
+        [Required]
         public string ReasonOfDistancing { get; set; }
-
-     /*   public bool Adoptable { get; set; }*/
-
         public ICollection<Treatment> Treatments { get; set; }
 
-        public void AddTreatment(Treatment treatment)
-        {
-
-            Treatments.Add(treatment);
-        }
-
-
-
         public ICollection<Comment> Comments { get; set; }
-
-
-        public void AddComment(Comment comment)
-        {
-
-            Comments.Add(comment);
-        }
-
+        [Required]
+        public bool Adoptable { get; set; }
 
         public Client AdoptedBy { get; set; }
         public int? ClientNumber { get; set; }
@@ -68,18 +50,7 @@ namespace Core.Domain
         public int? ResidenceId { get; set; }
 
         public Volunteer Volunteer { get; set; }
+
         public int? VolunteerId { get; set; }
-
-       /* public void CalculateAge() {
-            DateTime n = DateTime.Now;
-            int age = n.Year - DateOfBirth.Year;
-            int months = age * 12;
-
-            if (n.Month < DateOfBirth.Month || (n.Month == DateOfBirth.Month && n.Day < DateOfBirth.Day)) {
-                age--;
-                Age = age;
-
-            }
-        }*/
-   }
     }
+}

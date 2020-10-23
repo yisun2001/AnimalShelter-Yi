@@ -1,12 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "CWXqGhgKlt2tifHbIgCIgiGDYfdocQr7bXGp0Nap3VFen8jl+jpxe4C4OZNI6cuJ0rpx/z0V3B73YAI3Bn+Wiw==",
+  "dgSpecHash": "2sWJvVm1gmRkf/GYIAMJnmg7I/x9FUbSADL3/WFPZo3PoMUD+WQfDa/sddP40r+Yr+QZUMGvD9lhmO3NkqN0SQ==",
   "success": true,
   "projectFilePath": "C:\\Users\\ys200\\Desktop\\to do\\AnimalShelter\\Core.Domain\\Core.Domain.csproj",
-  "expectedPackageFiles": [
-    "C:\\Users\\ys200\\.nuget\\packages\\microsoft.aspnetcore.http.features\\3.1.9\\microsoft.aspnetcore.http.features.3.1.9.nupkg.sha512",
-    "C:\\Users\\ys200\\.nuget\\packages\\microsoft.extensions.primitives\\3.1.9\\microsoft.extensions.primitives.3.1.9.nupkg.sha512",
-    "C:\\Users\\ys200\\.nuget\\packages\\system.io.pipelines\\4.7.3\\system.io.pipelines.4.7.3.nupkg.sha512"
-  ],
+  "expectedPackageFiles": [],
   "logs": []
 }

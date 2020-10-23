@@ -7,6 +7,7 @@ using EF.Infrastructure;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.HttpsPolicy;
+using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
@@ -27,14 +28,23 @@ namespace UI.ASMApp
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
-            // services.AddDbContext<AnimalShelterDbContext>(options => options.UseSqlServer("server = animalshelter-yi.database.windows.net; database = animalshelter-yi; Trusted_Connection=False;"));
-           services.AddDbContext<AnimalShelterDbContext>(options => options.UseSqlServer(Configuration.GetConnectionString("default")));
+            services.AddDbContext<AnimalShelterDbContext>(options => options.UseSqlServer("server = animalshelter-yi.database.windows.net; database = animalshelter-yi; User ID=yisun2001;Password=P#GbY#P44E9^;Trusted_Connection=False;Encrypt=True;"));
+            services.AddDbContext<IEFDbContext>(options => options.UseSqlServer("server = animalshelter-yi.database.windows.net; database = Identity; User ID=yisun2001;Password=P#GbY#P44E9^;Trusted_Connection=False;Encrypt=True;"));
+
+            services.AddIdentity<IdentityUser, IdentityRole>().AddEntityFrameworkStores<IEFDbContext>().AddDefaultTokenProviders();
+
+            services.AddAuthorization(options => {
+                options.AddPolicy("Volunteer", policy => policy.RequireClaim("VolunteerType"));
+            });
+
             services.AddControllersWithViews();
             services.AddScoped<IAnimalRepository, AnimalRepository>();
-            services.AddScoped<IResidenceRepository, ResidenceRepository>();
-            services.AddScoped<ITreatmentRepository, TreatmentRepository>();
+            services.AddScoped<IApplicationRepository, ApplicationRepository>();
             services.AddScoped<ICommentRepository, CommentRepository>();
-
+            services.AddScoped<ITreatmentRepository, TreatmentRepository>();
+            services.AddScoped<IResidenceRepository, ResidenceRepository>();
+            services.AddScoped<IVolunteerRepository, VolunteerRepository>();
+            services.AddScoped<IClientRepository, ClientRepository>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -54,6 +64,8 @@ namespace UI.ASMApp
             app.UseStaticFiles();
 
             app.UseRouting();
+
+            app.UseAuthentication();
 
             app.UseAuthorization();
 

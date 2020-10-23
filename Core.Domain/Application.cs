@@ -11,6 +11,6 @@ namespace Core.Domain
         public int ClientNumber { get; set; }
         public string AnimalName { get; set; }
         public string TypeOfAnimal { get; set; }
-        public bool IsNeutered { get; set; }
+        public bool Neutered { get; set; }
     }
 }

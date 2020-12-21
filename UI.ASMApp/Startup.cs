@@ -28,8 +28,8 @@ namespace UI.ASMApp
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
-            services.AddDbContext<AnimalShelterDbContext>(options => options.UseSqlServer("server = animalshelter-yi.database.windows.net; database = animalshelter-yi; User ID=yisun2001;Password=P#GbY#P44E9^;Trusted_Connection=False;Encrypt=True;"));
-            services.AddDbContext<IEFDbContext>(options => options.UseSqlServer("server = animalshelter-yi.database.windows.net; database = Identity; User ID=yisun2001;Password=P#GbY#P44E9^;Trusted_Connection=False;Encrypt=True;"));
+            services.AddDbContext<AnimalShelterDbContext>(options => options.UseSqlServer("server = animalshelter-yi.database.windows.net; database = animalshelter-yi; User ID=yisun2001;Password=P#GbY#P44E9^;Trusted_Connection=False;Encrypt=True; MultipleActiveResultSets=True"));
+            services.AddDbContext<IEFDbContext>(options => options.UseSqlServer("server = animalshelter-yi.database.windows.net; database = Identity; User ID=yisun2001;Password=P#GbY#P44E9^;Trusted_Connection=False;Encrypt=True; MultipleActiveResultSets=True"));
 
             services.AddIdentity<IdentityUser, IdentityRole>().AddEntityFrameworkStores<IEFDbContext>().AddDefaultTokenProviders();
 

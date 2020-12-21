@@ -26,9 +26,10 @@
     @*    ===============================================================================================*@
     <link rel="stylesheet" type="text/css" href="vendor/daterangepicker/daterangepicker.css">
     <!--===============================================================================================-->
-    <link rel="stylesheet" type="text/css" href="css/util.css">
-    <link rel="stylesheet" type="text/css" href="css/main.css">
-    <link rel="stylesheet" type="text/css" href="css/site.css">
+    <link href="@Url.Content("~/css/site.css")" rel="stylesheet" type="text/css" />
+    <link href="@Url.Content("~/css/main.css")" rel="stylesheet" type="text/css" />
+    <link href="@Url.Content("~/css/util.css")" rel="stylesheet" type="text/css" />
+
     <!--===============================================================================================-->
 </head>
 
@@ -82,8 +83,8 @@
                 </div>
 
                 <div class="container-login100-form-btn m-t-20">
-                    <button class="login100-form-btn" type="submit">
-                        Creata account
+                    <button class="login100-form-btn" style="color:#8CD638" type="submit">
+                        Create an account
                     </button>
                 </div>
 

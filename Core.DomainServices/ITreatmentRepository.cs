@@ -8,5 +8,11 @@ namespace Core.DomainServices
     public interface ITreatmentRepository
     {
         Treatment CreateTreatment(Treatment treatment);
+
+        Treatment DeleteTreatment(int Id);
+
+        Treatment GetTreatment(int Id);
+
+        Treatment UpdateTreatment(Treatment treatment);
     }
 }

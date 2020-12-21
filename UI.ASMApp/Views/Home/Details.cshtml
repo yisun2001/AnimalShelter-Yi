@@ -1,95 +1,124 @@
 ﻿@model Animal
 
-@{ var photoPath = "~/Images/AnimalImages/" + (Model?.ImagePath ?? "noimage.jpg"); }
+    <link rel="stylesheet" href="~/css/site.css" />
+    @{ var photoPath = "~/Images/AnimalImages/" + (Model?.ImagePath ?? "noimage.jpg"); }
 
+ 
 <a asp-action="index" asp-controller="home" asp-route-id="@Model.Id" class="btn btn-primary">Back</a>
+    <div class="row justify-content-center m-3">
+        <div class="col-sm-8">
+            <div class="card">
+                <div class="card-header">
+                        <div class="text-center">
 
-<div class="row justify-content-center m-3">
-    <div class="col-sm-8">
-        <div class="card">
-            <div class="card-header">
-                <h1>@Model.Name</h1>
+                            <h1 style="color: #42B2D6">@Model.Name</h1>
+                        </div>
+                        
+                   
+                </div>
+                <div class="col-md-12 text-center">
+                    <img class=" center text-center logo_top" style="height: 300px; width: 300px; object-fit:cover; margin-bottom: 20px; margin-top: 20px;" src="@photoPath" alt="Image is missing" asp-append-version="true" />
+                </div>
+                <div class="card-body text-center">
+                    <h4>Gender: @Model.Gender</h4>
+                    <h4>Age: @Model.Age</h4>
+                    <h4>Breed: @Model.Breed</h4>
+                </div>
+                <div class="card-footer text-center">
+                    <a asp-action="edit" asp-controller="home" asp-route-id="@Model.Id" class="btn" style="background-color: #8CD638">Edit</a>
+                    <a asp-action="addcomment" asp-controller="home" asp-route-id="@Model.Id" class="btn" style="background-color: #8CD638">Add Comment</a>
+                    <a asp-action="addtreatment" asp-controller="home" asp-route-id="@Model.Id" class="btn" style="background-color: #8CD638">Add Treatment</a>
+                    <form asp-action="Delete" asp-route-id="@Model.Id" method="post">
+                        <button type="submit" class="btn btn-danger">Delete</button>
+                    </form>
+                </div>
             </div>
-            <div class="col-md-12 text-center">
-                <img class=" center text-center" style="height: 300px; width: 300px; margin-bottom: 20px; margin-top: 20px;" src="@photoPath" alt="Image is missing" asp-append-version="true" />
-            </div>
-            <div class="card-body text-center">
-                <h4>Employee ID: @Model.Id</h4>
-                <h4>age: @Model.Age</h4>
-                <h4>Breed: @Model.Breed</h4>
-            </div>
-            <div class="card-footer text-center">
-                <a asp-action="edit" asp-controller="home" asp-route-id="@Model.Id" class="btn btn-primary">Edit</a>
-                <a asp-action="addcomment" asp-controller="home" asp-route-id="@Model.Id" class="btn btn-primary">Add Comment</a>
-                <a asp-action="addtreatment" asp-controller="home" asp-route-id="@Model.Id" class="btn btn-primary">Add Treatment</a>
-                <form asp-action="Delete" asp-route-id="@Model.Id" method="post">
-                    <button type="submit" class="btn btn-danger">Delete</button>
-                </form>
-            </div>
-        </div>
-        <style>
-            table {
-                font-family: arial, sans-serif;
-                border-collapse: collapse;
-                width: 100%;
-            }
+            <style>
+                table {
+                    font-family: arial, sans-serif;
+                    border-collapse: collapse;
+                    width: 100%;
+                }
 
-            td, th {
-                border: 1px solid #dddddd;
-                text-align: left;
-                padding: 8px;
-            }
+                td, th {
+                    border: 1px solid #dddddd;
+                    text-align: left;
+                    padding: 8px;
+                }
 
-            tr:nth-child(even) {
-                background-color: #dddddd;
-            }
-        </style>
-        <hr />
+                tr:nth-child(even) {
+                    background-color: #dddddd;
+                }
 
-        <div>
-            <h3>Comments</h3>
-            <table>
+                card {
+                    border-color: #42B2D6;
+                }
+            </style>
+            <hr />
+
+            <div>
+                <h3 style="color: #42B2D6">Comments</h3>
+                <table>
+                    <tr>
+                        <th>Comment</th>
+                        <th>Volunteer Id</th>
+                        <th>Volunteer Name</th>
+                        <th>Date</th>
+                    </tr>
+                    @foreach (var item in Model.Comments)
+                    {
                 <tr>
-                    <th>Comment</th>
-                    <th>Made by</th>
-                    <th>Date</th>
+                    <td>@item.CommentText</td>
+                    <td>@item.VolunteerId</td>
+                    <td>@item.CommentMadeBy</td>
+                 >
+
                 </tr>
-                @foreach (var item in Model.Comments)
-                {
-    <tr>
-        <td>@item.CommentText</td>
-        <td>@item.VolunteerId</td>
-        <td>@item.Date</td>
-    </tr>
 }
-            </table>
-        </div>
-        <hr />
-        <div>
-            <h3>Treatments</h3>
-            <table>
+                </table>
+            </div>
+
+            <div>
+                <h3 style="color: #42B2D6">Treatments</h3>
+                <table>
+                    <tr>
+                        <th>ID</th>
+                        <th>Type</th>
+                        <th>Description</th>
+                        <th>Costs</th>
+                        <th>Age Requirement</th>
+                        <th>Treated By</th>
+                        <th>Date</th>
+                    </tr>
+                    @foreach (var item in Model.Treatments)
+                    {
                 <tr>
-                    <th>ID</th>
-                    <th>Type</th>
-                    <th>Description</th>
-                    <th>costs</th>
-                    <th>Age Requirement</th>
-                    <th>Treated By</th>
-                    <th>Date</th>
-                </tr>
-                @foreach (var item in Model.Treatments)
-                {
-    <tr>
-        <td>@item.Id</td>
-        <td>@item.TreatmentType</td>
-        <td>@item.Description</td>
-        <td>@item.Costs</td>
-        <td>@item.AgeRequirement</td>
-        <td>@item.ExecutedBy</td>
-        <td>@item.DateOfTime</td>
-    </tr>
-}
-            </table>
+                    <td>@item.Id</td>
+                    <td>@item.TreatmentType</td>
+                    <td>@item.Description</td>
+                    <td>@item.Costs</td>
+                    <td>@item.AgeRequirement</td>
+                    <td>@item.ExecutedBy</td>
+                    <td>@item.DateOfTime</td>
+                    <td><a asp-action="editTreatment" asp-controller="home" asp-route-id="@item.Id" class="btn" style="background-color: #8CD638">Edit</a></td>
+                    <td>
+                        <form asp-action="deleteTreatment" asp-route-id="@item.Id" method="post">
+                            <button type="submit" class="btn btn-danger">Delete</button>
+                        </form>
+                    </td>
+                </tr>}
+                </table>
+            </div><hr />
+            <div>
+                <h3  style="color: #42B2D6">Description</h3>
+                <table>
+
+        <tr>
+            <td>@Model.Description</td>
+
+        </tr>
+
+                </table>
+            </div>
         </div>
     </div>
-</div>

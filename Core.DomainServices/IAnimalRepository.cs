@@ -16,6 +16,8 @@ namespace Core.DomainServices
 
         Animal UpdateAnimal(Animal animal);
 
+        public int count();
+
         ICollection<Comment> GetAnimalComments(int Id);
         ICollection<Treatment> GetAnimalTreatment(int Id);
     }

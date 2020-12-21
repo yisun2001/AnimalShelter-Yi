@@ -34,10 +34,10 @@ namespace UI.ASMApp.Controllers
         public HomeController(ILogger<HomeController> logger, IAnimalRepository animalRepository, IHostingEnvironment hostingEnvironment, ICommentRepository commentRepository, ITreatmentRepository treatmentRepository, IResidenceRepository residenceRepository, UserManager<IdentityUser> userManager, SignInManager<IdentityUser> signInManager, IVolunteerRepository volunteerRepository)
         {
             _logger = logger;
-            this._animalRepository = animalRepository;
-            this._commentRepository = commentRepository;
-            this._treatmentRepository = treatmentRepository;
-            this._residenceRepository = residenceRepository;
+            _animalRepository = animalRepository;
+            _commentRepository = commentRepository;
+            _treatmentRepository = treatmentRepository;
+            _residenceRepository = residenceRepository;
             this.userManager = userManager;
             this.signInManager = signInManager;
             this.volunteerRepository = volunteerRepository;
@@ -59,7 +59,6 @@ namespace UI.ASMApp.Controllers
             AddCommentViewModel model = new AddCommentViewModel
             {
                 AnimalId = id,
-                VolunteerId = 2
             };
             return View(model);
         }
@@ -84,55 +83,85 @@ namespace UI.ASMApp.Controllers
         [HttpPost]
         public IActionResult AddTreatment(AddTreatmentViewModel model)
         {
-            Animal animal = new Animal();
 
-            if (model.TreatmentType == TreatmentType.CASTRATION || model.TreatmentType == TreatmentType.STERILIZATION)
+            Animal animal = _animalRepository.GetAnimal(model.AnimalId);
+
+            if (animal.Age == 0)
             {
 
+                DateTime date1 = (DateTime)animal.DateOfBirth;
+                var date2 = DateTime.Now;
 
-                if (animal.Age < 0.5)
+                var monthscalculated = (date1.Year - date2.Year) * 12 + date2.Month - date1.Month;
+                TimeSpan dayscalculated = date2 - date1;
+
+                var totaldays = dayscalculated.TotalDays;
+
+                if (monthscalculated < 6 && (int)model.treatment.TreatmentType == 0 || (int)model.treatment.TreatmentType == 1 && model.treatment.AgeRequirement < 6)
                 {
-
-                    ModelState.AddModelError(nameof(model.TreatmentType), "De behandeling mag pas na de leeftijd van 6 maanden geëxcuteerd worden.");
+                    ModelState.AddModelError(string.Empty, "Het dier moet minimaal 6 maanden oud zijn voor deze behandeling.");
                 }
 
             }
-            if (ModelState.IsValid)
-            {
+
+           
+
+                if ((int)model.treatment.TreatmentType == 0 || (int)model.treatment.TreatmentType == 1)
+                {
+                    animal.IsNeutered = true;
+                    _animalRepository.UpdateAnimal(animal);
+                }
 
                 if (model.AgeRequirement / 12 > (animal.Age))
                 {
-                    ModelState.AddModelError(nameof(model.AgeRequirement), "Animal does not age requirement.");
+                    ModelState.AddModelError(nameof(model.AgeRequirement), "Het dier voldoet niet aan de leeftijdseisen.");
                 }
-                if (model.DateOfTime < animal.DateOfArrival)
+                if (model.treatment.DateOfTime < animal.DateOfArrival)
                 {
                     ModelState.AddModelError(nameof(model.DateOfTime), "Datum van behandeling is vóór het moment van arriveren.");
                 }
 
-                if (model.DateOfTime > animal.DateOfDeath)
+            if (model.treatment.DateOfTime > animal.DateOfDeath)
+            {
+                ModelState.AddModelError(nameof(model.DateOfTime), "Datum van behandeling is na het overlijden van het dier.");
+            }
+
+
+               if ((int)model.treatment.TreatmentType == 2 &&
+                    model.treatment.Description == null) {
+
+                        ModelState.AddModelError(string.Empty, "Bij deze behandeling is een omschrijving verplicht.");
+      
+                            }
+
+                if ((int)model.treatment.TreatmentType == 3 &&
+                     model.treatment.Description == null)
                 {
-                    ModelState.AddModelError(nameof(model.DateOfTime), "Datum van behandeling is na het overlijden van het dier.");
 
-                    switch (model.TreatmentType)
-                    {
-                        case TreatmentType.VACCINATION:
-                            ModelState.AddModelError(nameof(model.Description), "Bij deze behandeling is een omschrijving verplicht.");
-                            break;
+                    ModelState.AddModelError(string.Empty, "Bij deze behandeling is een omschrijving van de type operatie benodigd.");
 
-                        case TreatmentType.OPERATION:
-                            ModelState.AddModelError(nameof(model.Description), "Bij deze behandeling is een omschrijving van de type operatie benodigd.");
-                            break;
-
-                        case TreatmentType.CHIPPING:
-                            ModelState.AddModelError(nameof(model.Description), "Bij deze behandeling is een chipcode (GUID) verplicht.");
-                            break;
-
-                        case TreatmentType.EUTHANASIA:
-                            ModelState.AddModelError(nameof(model.Description), "Bij deze behandeling is een beschreven reden nodig.");
-                            break;
-                    }
                 }
 
+                if ((int)model.treatment.TreatmentType == 4 &&
+                    model.treatment.Description == null)
+                {
+
+                    ModelState.AddModelError(string.Empty, "Bij deze behandeling is een chipcode (GUID) verplicht.");
+
+                }
+
+                if ((int)model.treatment.TreatmentType == 5 &&
+                    model.treatment.Description == null)
+                {
+
+                    ModelState.AddModelError(string.Empty, "Bij deze behandeling is een beschreven reden nodig.");
+
+                }
+
+
+
+            if (ModelState.IsValid)
+            {
 
                 /*animal.IsNeutered == true;*/
                 Treatment newTreatment = model.treatment;
@@ -150,12 +179,14 @@ namespace UI.ASMApp.Controllers
 
             string mail = await getEmailAsync();
             var volId = volunteerRepository.GetVolunteerByEmail(mail).VolunteerId;
+            Volunteer vol = volunteerRepository.GetVolunteer(volId);
             model.VolunteerId = volId;
             if (ModelState.IsValid)
             {
                 Comment newComment = model.comment;
                 newComment.AnimalId = model.AnimalId;
                 newComment.VolunteerId = model.VolunteerId;
+                newComment.CommentMadeBy = vol;
                 newComment.Date = DateTime.Now;
 
                 _commentRepository.CreateComment(newComment);
@@ -185,6 +216,12 @@ namespace UI.ASMApp.Controllers
             {
                 ModelState.AddModelError(string.Empty, "Choose birthdate or Age estimate");
             }
+
+            if (model.DateOfBirth != null && model.EstimatedAge != null)
+            {
+                ModelState.AddModelError(string.Empty, "Cannot enter both estimated age and date of birth.");
+            }
+
             if (model.DateOfBirth != null)
             {
                 model.Age = calculateAge((DateTime)model.DateOfBirth);
@@ -325,6 +362,14 @@ namespace UI.ASMApp.Controllers
             return RedirectToAction("index");
         }
 
+        [HttpPost]
+        public IActionResult DeleteTreatment(int id)
+        {
+
+            _treatmentRepository.DeleteTreatment(id);
+            return RedirectToAction("index");
+        }
+
         [HttpGet]
         public ViewResult Edit(int id)
         {
@@ -333,12 +378,34 @@ namespace UI.ASMApp.Controllers
             return View(animal);
         }
 
+
+        [HttpGet]
+        public ViewResult EditTreatment(int id)
+        {
+
+
+            Treatment treatment = _treatmentRepository.GetTreatment(id);
+
+            AddTreatmentViewModel model = new AddTreatmentViewModel
+            {
+                treatment = treatment,
+                AnimalId = treatment.AnimalId
+            };
+            return View(model);       
+        }
+
+
         [HttpPost]
         public IActionResult Edit(Animal model)
         {
             if (model.DateOfBirth == null && model.EstimatedAge == null)
             {
                 ModelState.AddModelError(string.Empty, "Choose birthdate or Age estimate");
+            }
+
+            if (model.DateOfBirth != null && model.EstimatedAge != null)
+            {
+                ModelState.AddModelError(string.Empty, "Cannot enter both estimated age and date of birth.");
             }
             if (model.DateOfBirth != null)
             {
@@ -348,19 +415,22 @@ namespace UI.ASMApp.Controllers
             {
                 model.Age = (int)model.EstimatedAge;
             }
+
             var residence = _residenceRepository.GetResidence((int)model.ResidenceId);
 
+
+      
             if (residence.Animals.Count == residence.Capacity)
             {
                 ModelState.AddModelError(nameof(model.Residence), "The chosen residence is full.");
                 return View();
             }
-            else if (model.AnimalType != residence.AnimalType)
+             if (model.AnimalType != residence.AnimalType)
             {
                 ModelState.AddModelError(nameof(model.Residence), "The animal types do not match. Don't try to put a dog in a cat-only residence.");
                 return View();
             }
-            else if (model.IsNeutered == false && residence.IsNeutered == false)
+             if (model.IsNeutered == false && residence.IsNeutered == false)
             {
 
                 ModelState.AddModelError(nameof(model.Residence), "The residence type and given animal are not both neutered.");
@@ -368,17 +438,113 @@ namespace UI.ASMApp.Controllers
             }
 
 
-            else if (model.Gender != residence.Gender)
+             if (model.Gender != residence.Gender)
             {
                 ModelState.AddModelError(nameof(model.Residence), "Not-neutered animals can't be with the opposite gender.");
                 return View();
             }
 
 
+
+
             if (ModelState.IsValid)
             {
                 _animalRepository.UpdateAnimal(model);
                 return RedirectToAction("index");
+            }
+            return View(model);
+        }
+
+
+
+        [HttpPost]
+        public IActionResult EditTreatment(AddTreatmentViewModel model)
+        {
+
+            Animal animal = _animalRepository.GetAnimal(model.AnimalId);
+
+            if (animal.Age == 0)
+            {
+
+                DateTime date1 = (DateTime)animal.DateOfBirth;
+                var date2 = DateTime.Now;
+
+                var monthscalculated = (date1.Year - date2.Year) * 12 + date2.Month - date1.Month;
+                TimeSpan dayscalculated = date2 - date1;
+
+                var totaldays = dayscalculated.TotalDays;
+
+                if (monthscalculated < 6 && (int)model.treatment.TreatmentType == 0 || (int)model.treatment.TreatmentType == 1 && model.treatment.AgeRequirement < 6)
+                {
+                    ModelState.AddModelError(string.Empty, "Het dier moet minimaal 6 maanden oud zijn voor deze behandeling.");
+                }
+
+            }
+
+
+
+            if ((int)model.treatment.TreatmentType == 0 || (int)model.treatment.TreatmentType == 1)
+            {
+                animal.IsNeutered = true;
+                _animalRepository.UpdateAnimal(animal);
+            }
+
+            if (model.AgeRequirement / 12 > (animal.Age))
+            {
+                ModelState.AddModelError(nameof(model.AgeRequirement), "Het dier voldoet niet aan de leeftijdseisen.");
+            }
+            if (model.treatment.DateOfTime < animal.DateOfArrival)
+            {
+                ModelState.AddModelError(nameof(model.DateOfTime), "Datum van behandeling is vóór het moment van arriveren.");
+            }
+
+            if (model.treatment.DateOfTime > animal.DateOfDeath)
+            {
+                ModelState.AddModelError(nameof(model.DateOfTime), "Datum van behandeling is na het overlijden van het dier.");
+            }
+
+
+            if ((int)model.treatment.TreatmentType == 2 &&
+                 model.treatment.Description == null)
+            {
+
+                ModelState.AddModelError(string.Empty, "Bij deze behandeling is een omschrijving verplicht.");
+
+            }
+
+            if ((int)model.treatment.TreatmentType == 3 &&
+                 model.treatment.Description == null)
+            {
+
+                ModelState.AddModelError(string.Empty, "Bij deze behandeling is een omschrijving van de type operatie benodigd.");
+
+            }
+
+            if ((int)model.treatment.TreatmentType == 4 &&
+                model.treatment.Description == null)
+            {
+
+                ModelState.AddModelError(string.Empty, "Bij deze behandeling is een chipcode (GUID) verplicht.");
+
+            }
+
+            if ((int)model.treatment.TreatmentType == 5 &&
+                model.treatment.Description == null)
+            {
+
+                ModelState.AddModelError(string.Empty, "Bij deze behandeling is een beschreven reden nodig.");
+
+            }
+
+
+
+            if (ModelState.IsValid)
+            {
+                Treatment newTreatment = model.treatment;
+                newTreatment.AnimalId = model.AnimalId;
+
+                _treatmentRepository.UpdateTreatment(newTreatment);
+                return RedirectToAction("details", new { id = newTreatment.AnimalId });
             }
             return View(model);
         }

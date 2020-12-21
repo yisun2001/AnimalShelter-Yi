@@ -27,7 +27,7 @@ namespace EF.Infrastructure
         public Animal DeleteAnimal(int Id)
         {
             Animal animal = GetAnimal(Id);
-            _context.Remove(GetAnimal(Id));
+            _context.Remove(animal);
             _context.SaveChanges();
 
             return animal;
@@ -41,6 +41,10 @@ namespace EF.Infrastructure
         public Animal GetAnimal(int Id)
         {
             var animal = _context.Animals.Find(Id);
+
+            if (animal == null) {
+                return animal;
+            }
             animal.Comments = GetAnimalComments(Id);
             animal.Treatments = GetAnimalTreatment(Id);
             return animal;
@@ -65,10 +69,20 @@ namespace EF.Infrastructure
 
         public Animal UpdateAnimal(Animal animal)
         {
-            var an = _context.Animals.Attach(animal);
-            an.State = EntityState.Modified;
+            // var an = _context.Animals.Attach(animal);
+            // an.State = EntityState.Modified;
+            var an = GetAnimal(animal.Id);
+            _context.Entry(an).CurrentValues.SetValues(animal);
+
             _context.SaveChanges();
             return animal;
+
+        }
+
+        public int count() {
+
+            int count = GetAllAnimals().Count();
+            return count;
         }
     }
 }

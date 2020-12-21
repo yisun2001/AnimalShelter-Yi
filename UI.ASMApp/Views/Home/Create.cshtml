@@ -150,7 +150,7 @@
         <div class="col-md-4">
             <div class="md-form mb-0">
                 <label asp-for="Adoptable" class=" col-form-label"></label>
-                <input asp-for="Adoptable" class="form-control" required placeholder="Adoptable">
+                <input asp-for="Adoptable" class="form-control"  placeholder="Adoptable">
                 <span asp-validation-for="Adoptable" class="text-danger"></span>
             </div>
         </div>
@@ -203,7 +203,7 @@
                 {
     <option value=@res.Id>@res.Id .@res.Shelter</option>
 }
-                <option value=0>No residence</option>
+             
             </select>
             <span asp-validation-for="ResidenceId" class="text-danger"></span>
         </div>

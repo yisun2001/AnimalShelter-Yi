@@ -13,5 +13,7 @@ namespace Core.DomainServices
         Volunteer CreateVolunteer(Volunteer volunteer);
 
         Volunteer GetVolunteerByEmail(string email);
+
+        Volunteer GetVolunteer(int Id);
     }
 }

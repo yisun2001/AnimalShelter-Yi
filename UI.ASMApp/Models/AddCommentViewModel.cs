@@ -15,5 +15,7 @@ namespace UI.ASMApp.Models
         public int AnimalId { get; set; }
 
         public int VolunteerId { get; set; }
+
+        public Volunteer CommentMadeBy { get; set; }
     }
 }

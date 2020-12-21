@@ -13,6 +13,8 @@ namespace EF.Infrastructure
     {
         private readonly AnimalShelterDbContext _context;
 
+      
+
         public VolunteerRepository(AnimalShelterDbContext context)
         {
             this._context = context;
@@ -23,6 +25,12 @@ namespace EF.Infrastructure
             _context.Volunteers.Add(volunteer);
             _context.SaveChanges();
             return volunteer;
+        }
+        public Volunteer GetVolunteer(int Id) {
+
+            var vol = _context.Volunteers.Find(Id);
+            return vol;
+
         }
 
         public IEnumerable<Volunteer> GetAllVolunteers()

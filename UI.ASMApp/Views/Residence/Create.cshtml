@@ -22,14 +22,14 @@
         <div class="col-md-6">
             <div class="md-form mb-0">
                 <label asp-for="Shelter " class=" col-form-label"></label>
-                <input asp-for="Shelter " class="form-control" required placeholder="Shelter ">
+                <input asp-for="Shelter " class="form-control" required placeholder="Title ">
                 <span asp-validation-for="Shelter " class="text-danger"></span>
             </div>
         </div>
         <div class="col-md-4">
             <div class="md-form mb-0">
                 <label asp-for="Capacity  " class=" col-form-label"></label>
-                <input asp-for="Capacity  " class="form-control"  placeholder="MaxCapacity  ">
+                <input asp-for="Capacity  " class="form-control"  placeholder="Maximum capacity  ">
                 <span asp-validation-for="Capacity  " class="text-danger"></span>
             </div>
         </div>
@@ -38,9 +38,9 @@
             <div class="md-form mb-0">
                 <label asp-for="Gender " class=" col-form-label"></label>
                 <select asp-for="Gender " class="form-control" placeholder="Gender ">
-                    <option value="1">Male</option>
-                    <option value="2">Female</option>
-                    <option value="3">Other</option>
+                    <option value="Man">Male</option>
+                    <option value="Vrouw">Female</option>
+                    <option value="Onbekend">Other</option>
                 </select>
                 <span asp-validation-for="AnimalType " class="text-danger"></span>
             </div>
@@ -65,7 +65,7 @@
         <div class="col-md-4">
             <div class="md-form mb-0">
                 <label asp-for="IsNeutered " class=" col-form-label"></label>
-                <input asp-for="IsNeutered " class="form-control" required placeholder="Neutered">
+                <input asp-for="IsNeutered " class="form-control" placeholder="Neutered">
                 <span asp-validation-for="IsNeutered " class="text-danger"></span>
             </div>
         </div>

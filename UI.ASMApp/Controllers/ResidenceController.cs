@@ -76,6 +76,7 @@ namespace UI.ASMApp.Controllers
                     IsNeutered = model.IsNeutered,
                     IndividualOrGroup = model.IndividualOrGroup,
                     Animals = model.Animals,
+                    Gender = model.Gender,
 
                 };
 

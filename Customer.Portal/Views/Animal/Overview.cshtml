@@ -1,0 +1,76 @@
+﻿@{
+    ViewData["Title"] = "Overview";
+}
+
+@model List<AnimalOverviewViewModel>
+<body>
+    <div class="row">
+        <div class="container col-2" style="margin-top: 22px">
+            <div class="card" style="padding: 20px">
+                <form asp-action="Overview" method="get" asp-route-type="@ViewData["FilterType"]" asp-route-gender="@ViewData["FilterGender"]" asp-route-kidfriendly="@ViewData["FilterKidFriendly"]">
+                    <h2>Filters</h2>
+                    <div class="form-group">
+                        <label for="type">Type dier:</label>
+                        <select class="form-control" id="type" name="type">
+                            <option value="">Geen Filter</option>
+                            <option value="Hond" >Hond</option>
+                            <option value="Kat">Kat</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="gender">Geslacht dier:</label>
+                        <select class="form-control" id="gender" name="gender">
+                            <option value="">Geen Filter</option>
+                            <option value="Mannetje">Mannetje</option>
+                            <option value="Vrouwtje">Vrouwtje</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="kidfriendly">Is het dier kind friendelijk:</label>
+                        <select class="form-control" id="kidfriendly" name="kidfriendly">
+                            <option value="">Geen Filter</option>
+                            <option value="Ja">Ja</option>
+                            <option value="Nee">Nee</option>
+                            <option value="Onbekend">Onbekend</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <button class="btn btn-primary text-center">Filter toevoegen</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+        <div class="container col-10 mt-4">
+            <div class="row">
+                <div class="card-deck justify-content-center">
+                    @foreach (var animal in @Model)
+                    {
+
+                        <div class="card" style="min-width: 18rem; max-width: 18rem; margin-bottom: 10px">
+                            @{ if (animal.Image != null)
+                                {
+                                    <img src="data:image;base64,@Convert.ToBase64String(animal.Image)" class="card-img-top" alt="Card image cap" />
+                                }
+                                else
+                                {
+                                    <img class="card-img-top" src="http://i.imgur.com/e9ABPu5.jpg" alt="Card image cap" />
+                                }
+                            }
+
+                        <div class="card-body">
+                            <h5 class="card-title">Naam: @(animal.Name)</h5>
+                            <p class="card-text">Leeftijd: @animal.GetAnimalAge()</p>
+                            <p class="card-text">Diersoort: @animal.Type</p>
+                            <p class="card-text">Geslacht: @animal.Gender</p>
+                            <a asp-action="Details" asp-route-id="@animal.Id" class="btn btn-primary justify-content-center">Ga naar details</a>
+                        </div>
+                        </div>
+
+                    }
+                </div>
+            </div>
+        </div>
+    </div>
+    
+
+</body>

@@ -1,0 +1,32 @@
+﻿@model List<InterestViewModel>
+    <div class="row">
+        <div class="container mt-4">
+
+            <div class="card-deck justify-content-center">
+                @foreach (var interest in @Model)
+                {
+
+                <div class="card" style="min-width: 24rem; max-width:24rem;">
+                    @{ if (interest.Animal.Image != null)
+                        {
+                            <img src="data:image;base64,@Convert.ToBase64String(interest.Animal.Image)" class="card-img-top" alt="Card image cap" />
+                        }
+                        else
+                        {
+                            <img class="card-img-top" src="http://i.imgur.com/e9ABPu5.jpg" alt="Card image cap" />
+                        }
+                    }
+
+                <div class="card-body">
+                    <h5 class="card-title">Naam: @(interest.Animal.Name)</h5>
+                    <p class="card-text">Leeftijd: @interest.Animal.GetAnimalAge()</p>
+                    <p class="card-text">DierType: @interest.Animal.Type</p>
+                    <p class="card-text">Geslacht: @interest.Animal.Gender</p>
+                    <a asp-action="DeleteInterest" asp-controller="Interest" asp-route-id="@interest.Id" class="btn btn-primary">Verwijderen</a>
+                </div>
+
+                </div>
+                }
+            </div>
+        </div>
+    </div>

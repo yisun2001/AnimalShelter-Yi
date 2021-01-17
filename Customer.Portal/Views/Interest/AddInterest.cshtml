@@ -1,0 +1,18 @@
+﻿@model InterestViewModel
+
+<div class="container col-6 mt-4 justify-content-center">
+    <div class="card">
+        <div class="card-body">
+            <div asp-validation-summary="All"></div>
+            <form asp-action="AddInterest" asp-controller="Interest" method="post">
+                <div class="form-group">
+                    <label asp-for="Comment">Opmerking:</label>
+                    <textarea type="text" class="form-control" asp-for="Comment"> </textarea>
+                </div>
+                <div class="form-group ">
+                    <button class="btn btn-primary col-sm-4 text-center">Interesse toevoegen</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>

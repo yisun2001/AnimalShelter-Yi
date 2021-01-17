@@ -1,0 +1,36 @@
+﻿@model AnimalOverviewViewModel
+
+<body>
+    <div class="row">
+        <div class="container col-5 mt-4">
+                    <div class="card">
+
+                        <div class="card-body">
+                            <h1 class="card-title">Naam: @(Model.Name)</h1>
+                            <h5 class="card-text">Leeftijd: @Model.GetAnimalAge()</h5>
+                            <h5 class="card-text">Dier type: @Model.Type</h5>
+                            <h5 class="card-text">Ras: @((Model.Race!=null)? Model.Race : "Onbekend") </h5>
+                            <h5 class="card-text">Geslacht: @Model.Gender</h5>
+                            <h5 class="card-text">Kind friendelijk?: @Model.KidFriendly</h5>
+                           <a asp-action="AddInterest" asp-controller="Interest" asp-route-id="@Model.Id" class="btn btn-primary justify-content-center">Interesse tonen</a>
+                        </div>
+                    </div>
+        </div>
+        <div class="container col-5" style="margin-top: 22px">
+            <div class="card">
+                @{ if (Model.Image != null)
+                    {
+                        <img src="data:image;base64,@Convert.ToBase64String(Model.Image)" class="card-img-top" alt="Card image cap"  />
+                    }
+                    else
+                    {
+                        <img class="card-img-top" src="http://i.imgur.com/e9ABPu5.jpg" alt="Card image cap" />
+                    }
+                }
+
+            </div>
+        </div>
+    </div>
+
+    
+</body>

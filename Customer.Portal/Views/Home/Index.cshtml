@@ -1,0 +1,64 @@
+﻿@{
+    ViewData["Title"] = "Home Page";
+}
+
+<header>
+    <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
+        <ol class="carousel-indicators">
+            <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
+            <li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
+            <li data-target="#carouselExampleIndicators" data-slide-to="2"></li>
+        </ol>
+        <div class="carousel-inner" role="listbox">
+            <!-- Slide One - Set the background image for this slide in the line below -->
+            <div class="carousel-item active" style="background-image: url('https://www.itl.cat/pngfile/big/13-135454_happy-dog-wallpapers-happy-dog.jpg')">
+                <div class="carousel-caption d-none d-md-block">
+                    <h2 class="display-4">Asiel Breda</h2>
+                    <p class="lead">Een plek voor alle dieren.</p>
+                </div>
+            </div>
+            <!-- Slide Two - Set the background image for this slide in the line below -->
+            <div class="carousel-item" style="background-image: url('https://images.wallpaperscraft.com/image/cat_lying_grass_rest_sleep_67154_1366x768.jpg')">
+                <div class="carousel-caption d-none d-md-block">
+                    <h2 class="display-4">Dier adopteren?</h2>
+                    <p class="lead">Neem eens een kijkje door alle dieren.</p>
+                </div>
+            </div>
+            <!-- Slide Three - Set the background image for this slide in the line below -->
+            <div class="carousel-item" style="background-image: url('https://eskipaper.com/images/dog-background-hd-1.jpg')">
+                <div class="carousel-caption d-none d-md-block">
+                    <h2 class="display-4">Dier ter adoptie zetten?</h2>
+                    <p class="lead">Log in en vul het form in.</p>
+                </div>
+            </div>
+        </div>
+        <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
+            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+            <span class="sr-only">Previous</span>
+        </a>
+        <a class="carousel-control-next" href="#carouselExampleIndicators" role="button" data-slide="next">
+            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+            <span class="sr-only">Next</span>
+        </a>
+    </div>
+</header>
+
+<!-- Page Content -->
+<section class="py-5">
+    <div class="container">
+        <h1 class="display-4">Animal Shelter Breda</h1>
+        <p class="lead">Klanten applicatie</p>
+    </div>
+</section>
+
+<style>
+    .carousel-item {
+        height: 100vh;
+        min-height: 370px;
+        background: no-repeat center center scroll;
+        -webkit-background-size: cover;
+        -moz-background-size: cover;
+        -o-background-size: cover;
+        background-size: cover;
+    }
+</style>

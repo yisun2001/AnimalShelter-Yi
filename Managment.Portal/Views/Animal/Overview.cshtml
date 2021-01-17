@@ -1,0 +1,67 @@
+﻿@{
+    ViewData["Title"] = "Overview";
+}
+
+@model List<AnimalOverviewViewModel>
+
+
+<h1 class="text-center alert-info">
+    Overview
+</h1>
+<div>
+    
+
+    <table class="table table-striped">
+        <th></th>
+        <th>Name</th>
+        <th>Type</th>
+        <th>Adoptable</th>
+        <th>Age</th>
+        <th>Residence</th>
+        <th></th>
+        <th></th>
+        <th></th>
+        <th><a asp-action="AddAnimal" class="btn btn-primary">Add Animal</a></th>
+        </thead>
+        <tbody>
+
+            @foreach (var animal in @Model)
+            {
+                <tr>
+                    <td>
+                        @{ if (animal.Image != null)
+                            {
+                                <img src="data:image;base64,@Convert.ToBase64String(animal.Image)" class="avatar rounded-circle" alt="picture animal" />
+                            }
+                            else
+                            {
+                                <img class="avatar rounded-circle" src="http://i.imgur.com/e9ABPu5.jpg" alt="default picture" />
+                            }
+                        }
+                    </td>
+                    <td>@($"{animal.Name}")</td>
+                    <td>@($"{animal.Type}")</td>
+                    <td>@(animal.Adoptable)</td>
+                    <td>@(animal.Age)</td>
+                    <td>@animal.Residence.Name</td>
+                    <td><a asp-action="UpdateAnimal" asp-route-id="@animal.Id" class="btn btn-bd-primary">Update</a></td>
+                    <td><a asp-action="DeleteAnimal" asp-route-id="@animal.Id" class="btn btn-bd-primary">Delete</a></td>
+                    <td><a asp-action="TreatmentsOverview" asp-controller="Treatment" asp-route-id="@animal.Id" class="btn btn-bd-primary">Treatments</a></td>
+                    <td><a asp-action="NotesOverview" asp-controller="Note" asp-route-id="@animal.Id" class="btn btn-bd-primary">Notes</a></td>
+                </tr>
+            }
+
+        </tbody>
+
+    </table>
+
+    <style>
+        .avatar {
+            vertical-align: middle;
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+        }
+    </style>
+   
+</div>

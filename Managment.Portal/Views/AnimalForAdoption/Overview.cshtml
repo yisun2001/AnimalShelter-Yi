@@ -1,0 +1,34 @@
+﻿@model List<AnimalsForAdoptionViewModel>
+
+<h1 class="text-center alert-info">
+    Overview
+</h1>
+<div>
+
+
+    <table class="table table-striped">
+        <th>Animal Name</th>
+        <th>Customer</th>
+        <th>Telephone Number</th>
+        <th>Reason for adoption</th>
+        <th>Added On</th>
+        </thead>
+        <tbody>
+
+            @foreach (var animal in @Model)
+            {
+                <tr>
+                    <td>@($"{animal.Name}")</td>
+                    <td>@($"{animal.Customer.FirstName} {animal.Customer.LastName}")</td>
+                    <td>@(animal.Customer.TelephoneNumber)</td>
+                    <td>@(animal.ReasonAdoptable)</td>
+                    <td>@($"{animal.AddedOn:dd-MM-yyyy}")</td>
+                </tr>
+            }
+
+        </tbody>
+
+    </table>
+
+
+</div>

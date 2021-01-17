@@ -1,0 +1,40 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netstandard2.1</TargetFramework>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <Compile Remove="Migrations\20201012135641_ChangeKidFriendlyToEnum.cs" />
+    <Compile Remove="Migrations\20201012135641_ChangeKidFriendlyToEnum.Designer.cs" />
+    <Compile Remove="Migrations\20201012140821_Seeding.cs" />
+    <Compile Remove="Migrations\20201012140821_Seeding.Designer.cs" />
+    <Compile Remove="Migrations\20201013111036_MadeResidenceNullable.cs" />
+    <Compile Remove="Migrations\20201013111036_MadeResidenceNullable.Designer.cs" />
+    <Compile Remove="Migrations\20201013123120_ChangedStringImageToByteArray.cs" />
+    <Compile Remove="Migrations\20201013123120_ChangedStringImageToByteArray.Designer.cs" />
+    <Compile Remove="Migrations\SecurityDb\20201018183916_ChangedPolicy.cs" />
+    <Compile Remove="Migrations\SecurityDb\20201018183916_ChangedPolicy.Designer.cs" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Microsoft.AspNetCore.Identity" Version="2.2.0" />
+    <PackageReference Include="Microsoft.AspNetCore.Identity.EntityFrameworkCore" Version="5.0.2" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore" Version="5.0.2" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.Design" Version="5.0.2">
+      <PrivateAssets>all</PrivateAssets>
+      <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+    </PackageReference>
+    <PackageReference Include="Microsoft.EntityFrameworkCore.SqlServer" Version="5.0.2" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.Tools" Version="5.0.2">
+      <PrivateAssets>all</PrivateAssets>
+      <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+    </PackageReference>
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\Managment.Core.DomainServices\Management.Core.DomainServices.csproj" />
+    <ProjectReference Include="..\Managment.Core.Domain\Management.Core.Domain.csproj" />
+  </ItemGroup>
+
+</Project>

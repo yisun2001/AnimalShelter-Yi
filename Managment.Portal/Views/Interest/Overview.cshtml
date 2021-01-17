@@ -1,0 +1,54 @@
+﻿@model List<InterestOverviewViewModel>
+
+<h1 class="text-center alert-info">
+    Overview
+</h1>
+<div>
+
+
+    <table class="table table-striped">
+        <th></th>
+        <th>Animal</th>
+        <th>Customer</th>
+        <th>Telephone Number</th>
+        <th>Comment</th>
+        <th>Added On</th>
+        </thead>
+        <tbody>
+
+            @foreach (var interest in @Model)
+            {
+                <tr>
+                    <td>
+                        @{ if (interest.Animal.Image != null)
+                            {
+                                <img src="data:image;base64,@Convert.ToBase64String(interest.Animal.Image)" class="avatar rounded-circle" alt="picture animal" />
+                            }
+                            else
+                            {
+                                <img class="avatar rounded-circle" src="http://i.imgur.com/e9ABPu5.jpg" alt="default picture" />
+                            }
+                        }
+                    </td>
+                    <td>@($"{interest.Animal.Name}")</td>
+                    <td>@($"{interest.Customer.FirstName} {interest.Customer.LastName}")</td>
+                    <td>@(interest.Customer.TelephoneNumber)</td>
+                    <td>@(interest.Comment)</td>
+                    <td>@($"{interest.AddedOn:dd-MM-yyyy}")</td>
+                </tr>
+            }
+
+        </tbody>
+
+    </table>
+
+    <style>
+        .avatar {
+            vertical-align: middle;
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+        }
+    </style>
+
+</div>

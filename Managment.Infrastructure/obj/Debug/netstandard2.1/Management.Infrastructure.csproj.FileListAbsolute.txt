@@ -1,0 +1,14 @@
+C:\Users\ys200\Desktop\learn\Serverside\Animal Shelter\Managment.Infrastructure\bin\Debug\netstandard2.1\Management.Infrastructure.deps.json
+C:\Users\ys200\Desktop\learn\Serverside\Animal Shelter\Managment.Infrastructure\bin\Debug\netstandard2.1\Management.Infrastructure.dll
+C:\Users\ys200\Desktop\learn\Serverside\Animal Shelter\Managment.Infrastructure\bin\Debug\netstandard2.1\Management.Infrastructure.pdb
+C:\Users\ys200\Desktop\learn\Serverside\Animal Shelter\Managment.Infrastructure\bin\Debug\netstandard2.1\Management.Core.Domain.dll
+C:\Users\ys200\Desktop\learn\Serverside\Animal Shelter\Managment.Infrastructure\bin\Debug\netstandard2.1\Management.Core.DomainServices.dll
+C:\Users\ys200\Desktop\learn\Serverside\Animal Shelter\Managment.Infrastructure\bin\Debug\netstandard2.1\Management.Core.DomainServices.pdb
+C:\Users\ys200\Desktop\learn\Serverside\Animal Shelter\Managment.Infrastructure\bin\Debug\netstandard2.1\Management.Core.Domain.pdb
+C:\Users\ys200\Desktop\learn\Serverside\Animal Shelter\Managment.Infrastructure\obj\Debug\netstandard2.1\Management.Infrastructure.csprojAssemblyReference.cache
+C:\Users\ys200\Desktop\learn\Serverside\Animal Shelter\Managment.Infrastructure\obj\Debug\netstandard2.1\Management.Infrastructure.AssemblyInfoInputs.cache
+C:\Users\ys200\Desktop\learn\Serverside\Animal Shelter\Managment.Infrastructure\obj\Debug\netstandard2.1\Management.Infrastructure.AssemblyInfo.cs
+C:\Users\ys200\Desktop\learn\Serverside\Animal Shelter\Managment.Infrastructure\obj\Debug\netstandard2.1\Management.Infrastructure.csproj.CopyComplete
+C:\Users\ys200\Desktop\learn\Serverside\Animal Shelter\Managment.Infrastructure\obj\Debug\netstandard2.1\Management.Infrastructure.dll
+C:\Users\ys200\Desktop\learn\Serverside\Animal Shelter\Managment.Infrastructure\obj\Debug\netstandard2.1\Management.Infrastructure.pdb
+C:\Users\ys200\Desktop\learn\Serverside\Animal Shelter\Managment.Infrastructure\obj\Debug\netstandard2.1\Management.Infrastructure.csproj.CoreCompileInputs.cache

@@ -1,0 +1,130 @@
+﻿@{
+    ViewData["Title"] = "Update an animal";
+}
+<h1>@ViewData["Title"]</h1>
+
+@model UpdateAnimalViewModel
+
+<div>
+
+    <div asp-validation-summary="All"></div>
+
+    <div>
+        <form enctype="multipart/form-data" asp-action="UpdateAnimal" method="post">
+
+            <div class="row">
+                <div class="form-group col-6">
+                    <label asp-for="Name">Name:</label>
+                    <input class="form-control" asp-for="Name" />
+                    <span asp-validation-for="Name" class="text-danger"></span>
+                </div>
+
+                <div class="form-group col-6">
+                    <label asp-for="Image">Image:</label>
+                    <div class="custom-file">
+                        <input asp-for="Image" class="form-control custom-file-input" />
+                        <label class="custom-file-label">Choose file</label>
+                    </div>
+                </div>
+            </div>
+            
+
+            <div class="form-group">
+                <label asp-for="Description">Description:</label>
+                <input class="form-control" asp-for="Description" />
+            </div>
+            <div class="row">
+                <div class="form-group col-6">
+                    <label asp-for="DateOfBirth">Date Of Birth:</label>
+                    <input type="date" class="form-control" asp-for="DateOfBirth" />
+                    <span asp-validation-for="DateOfBirth" class="text-danger"></span>
+                </div>
+
+                <div class="form-group col-6">
+                    <label asp-for="EstimatedAge">Estimated Age:</label>
+                    <input class="form-control" asp-for="EstimatedAge" />
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="form-group col-4">
+                    <label asp-for="Type">AnimalType:</label>
+                    <select class="form-control" asp-for="Type" asp-items="@ViewBag.Types"></select>
+                </div>
+
+                <div class="form-group col-4">
+                    <label asp-for="Race">Race:</label>
+                    <input class="form-control" asp-for="Race" />
+                </div>
+
+                <div class="form-group col-4">
+                    <label asp-for="Gender">Gender:</label>
+                    <select class="form-control" asp-for="Gender" asp-items="@ViewBag.Genders"></select>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label asp-for="DateOfArrival">Date Of Arrival:</label>
+                <input type="date" class="form-control" asp-for="DateOfArrival" />
+                <span asp-validation-for="DateOfArrival" class="text-danger"></span>
+            </div>
+            <div class="row">
+                <div class="form-group col-4">
+                    <label asp-for="Sterilised">Sterilised:</label>
+                    <input class="form-control" asp-for="Sterilised" />
+                </div>
+
+                <div class="form-group col-4">
+                    <label asp-for="Adoptable">Adoptable:</label>
+                    <input class="form-control" asp-for="Adoptable" />
+                </div>
+
+                <div class="form-group col-4">
+                    <label asp-for="KidFriendly">Kid friendly:</label>
+                    <select class="form-control" asp-for="KidFriendly" asp-items="@ViewBag.KidFriendly"></select>
+                </div>
+            </div>
+            <div class="form-group">
+                <label asp-for="ReasonAdoptable">Reason Adoptable:</label>
+                <input class="form-control" asp-for="ReasonAdoptable" />
+            </div>
+            <div class="row">
+                <div class="form-group col-6">
+                    <label asp-for="AdoptedBy">Adopted By:</label>
+                    <input class="form-control" asp-for="AdoptedBy" />
+                </div>
+                <div class="form-group col-6">
+                    <label asp-for="DateOfAdoption">Date Of Adoptable:</label>
+                    <input type="date" class="form-control" asp-for="DateOfAdoption" />
+                    <span asp-validation-for="DateOfAdoption" class="text-danger"></span>
+                </div>
+            </div>
+            <div class="form-group col-6">
+                <label asp-for="DateOfPassing">Date Of Passing:</label>
+                <input type="date" class="form-control" asp-for="DateOfPassing" />
+                <span asp-validation-for="DateOfPassing" class="text-danger"></span>
+            </div>
+
+            <div class="form-group">
+                <label asp-for="ResidenceId">Residence:</label>
+                <select class="form-control" asp-for="ResidenceId" asp-items="@ViewBag.Residences"></select>
+            </div>
+
+            <div class="form-group ">
+                <button class="btn btn-primary col-sm-4 text-center">Update Animal</button>
+            </div>
+            @section Scripts {
+                <script>
+                    $(document).ready(function () {
+                        $('.custom-file-input').on("change",
+                            function () {
+                                var fileName = $(this).val().split("\\").pop();
+                                $(this).next('.custom-file-label').html(fileName);
+                            });
+                    });
+                </script>
+            }
+        </form>
+    </div>
+</div>
+

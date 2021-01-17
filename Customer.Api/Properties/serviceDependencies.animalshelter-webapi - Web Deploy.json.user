@@ -1,0 +1,25 @@
+{
+  "dependencies": {},
+  "parameters": {
+    "animalshelter-webapi.resourceGroupLocation": {
+      "Type": null,
+      "Value": "northeurope"
+    },
+    "animalshelter-webapi.subscriptionId": {
+      "Type": "subscription",
+      "Value": "54bfd29a-462c-4eef-8cc1-09b16394e0ac"
+    },
+    "animalshelter-webapi.resourceName": {
+      "Type": null,
+      "Value": "animalshelter-webapi"
+    },
+    "subscriptionId": {
+      "Type": "subscription",
+      "Value": "54bfd29a-462c-4eef-8cc1-09b16394e0ac"
+    },
+    "animalshelter-webapi.resourceGroupName": {
+      "Type": "resourceGroup",
+      "Value": "AnimalShelter"
+    }
+  }
+}

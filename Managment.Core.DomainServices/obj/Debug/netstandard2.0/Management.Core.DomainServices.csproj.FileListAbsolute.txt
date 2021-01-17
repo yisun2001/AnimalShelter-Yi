@@ -1,0 +1,12 @@
+C:\Users\ys200\Desktop\learn\Serverside\Animal Shelter\Managment.Core.DomainServices\bin\Debug\netstandard2.0\Management.Core.DomainServices.deps.json
+C:\Users\ys200\Desktop\learn\Serverside\Animal Shelter\Managment.Core.DomainServices\bin\Debug\netstandard2.0\Management.Core.DomainServices.dll
+C:\Users\ys200\Desktop\learn\Serverside\Animal Shelter\Managment.Core.DomainServices\bin\Debug\netstandard2.0\Management.Core.DomainServices.pdb
+C:\Users\ys200\Desktop\learn\Serverside\Animal Shelter\Managment.Core.DomainServices\bin\Debug\netstandard2.0\Management.Core.Domain.dll
+C:\Users\ys200\Desktop\learn\Serverside\Animal Shelter\Managment.Core.DomainServices\bin\Debug\netstandard2.0\Management.Core.Domain.pdb
+C:\Users\ys200\Desktop\learn\Serverside\Animal Shelter\Managment.Core.DomainServices\obj\Debug\netstandard2.0\Management.Core.DomainServices.csprojAssemblyReference.cache
+C:\Users\ys200\Desktop\learn\Serverside\Animal Shelter\Managment.Core.DomainServices\obj\Debug\netstandard2.0\Management.Core.DomainServices.AssemblyInfoInputs.cache
+C:\Users\ys200\Desktop\learn\Serverside\Animal Shelter\Managment.Core.DomainServices\obj\Debug\netstandard2.0\Management.Core.DomainServices.AssemblyInfo.cs
+C:\Users\ys200\Desktop\learn\Serverside\Animal Shelter\Managment.Core.DomainServices\obj\Debug\netstandard2.0\Management.Core.DomainServices.csproj.CoreCompileInputs.cache
+C:\Users\ys200\Desktop\learn\Serverside\Animal Shelter\Managment.Core.DomainServices\obj\Debug\netstandard2.0\Management.Core.DomainServices.csproj.CopyComplete
+C:\Users\ys200\Desktop\learn\Serverside\Animal Shelter\Managment.Core.DomainServices\obj\Debug\netstandard2.0\Management.Core.DomainServices.dll
+C:\Users\ys200\Desktop\learn\Serverside\Animal Shelter\Managment.Core.DomainServices\obj\Debug\netstandard2.0\Management.Core.DomainServices.pdb

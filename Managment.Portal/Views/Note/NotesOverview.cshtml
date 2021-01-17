@@ -1,0 +1,43 @@
+﻿@{
+    ViewData["Title"] = "Overview";
+}
+
+@model List<NotesOverviewViewModel>
+
+
+<h1 class="text-center alert-info">
+    Overview
+</h1>
+
+<div>
+    
+
+    <table class="table table-striped">
+        <thead>
+        <th>Comment</th>
+        <th>MadeBy</th>
+        <th>WrittonOn</th>
+        <th><a asp-action="AddNote" asp-route-id="@Url.ActionContext.RouteData.Values["id"]" class="btn btn-primary">Add Note</a></th>
+        </thead>
+        <tbody>
+
+            @foreach (var note in @Model)
+            {
+                <tr>
+                    <td>@($"{note.Comment}")</td>
+                    <td>@($"{note.MadeBy}")</td>
+                    <td>@($"{note.WrittenOn:dd-MM-yyyy}")</td>
+                    <td><a asp-action="DeleteNote" asp-route-id="@note.Id" class="btn btn-bd-primary">Delete</a></td>
+                </tr>
+            }
+
+        </tbody>
+
+    </table>
+
+
+
+
+
+
+</div>

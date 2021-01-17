@@ -1,9 +1,0 @@
-C:\Users\ys200\Desktop\to do\AnimalShelter\Core.Domain\bin\Release\netcoreapp3.1\Core.Domain.deps.json
-C:\Users\ys200\Desktop\to do\AnimalShelter\Core.Domain\bin\Release\netcoreapp3.1\Core.Domain.dll
-C:\Users\ys200\Desktop\to do\AnimalShelter\Core.Domain\bin\Release\netcoreapp3.1\Core.Domain.pdb
-C:\Users\ys200\Desktop\to do\AnimalShelter\Core.Domain\obj\Release\netcoreapp3.1\Core.Domain.csprojAssemblyReference.cache
-C:\Users\ys200\Desktop\to do\AnimalShelter\Core.Domain\obj\Release\netcoreapp3.1\Core.Domain.AssemblyInfoInputs.cache
-C:\Users\ys200\Desktop\to do\AnimalShelter\Core.Domain\obj\Release\netcoreapp3.1\Core.Domain.AssemblyInfo.cs
-C:\Users\ys200\Desktop\to do\AnimalShelter\Core.Domain\obj\Release\netcoreapp3.1\Core.Domain.csproj.CoreCompileInputs.cache
-C:\Users\ys200\Desktop\to do\AnimalShelter\Core.Domain\obj\Release\netcoreapp3.1\Core.Domain.dll
-C:\Users\ys200\Desktop\to do\AnimalShelter\Core.Domain\obj\Release\netcoreapp3.1\Core.Domain.pdb

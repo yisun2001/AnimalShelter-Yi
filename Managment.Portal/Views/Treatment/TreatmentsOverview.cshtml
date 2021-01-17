@@ -1,0 +1,48 @@
+﻿@{
+    ViewData["Title"] = "Overview";
+}
+
+@model List<TreatmentOverviewViewModel>
+
+
+<h1 class="text-center alert-info">
+    Overview
+</h1>
+
+<div>
+    
+    <table class="table table-striped">
+        <thead>
+        <th>Type</th>
+        <th>AllowedAgeInMonths</th>
+        <th>Charge</th>
+        <th>PerformedBy</th>
+        <th>PerformedOn</th>
+        <th></th>
+        <th><a asp-action="AddTreatment" asp-route-id="@Url.ActionContext.RouteData.Values["id"]" asp-controller="Treatment" class="btn btn-primary">Add Treatment</a></th>
+        </thead>
+        <tbody>
+
+            @foreach (var treatment in @Model)
+            {
+                <tr>
+                    <td>@($"{treatment.Type}")</td>
+                    <td>@($"{treatment.AllowedAgeInMonths}")</td>
+                    <td>@(treatment.Charge)</td>
+                    <td>@(treatment.PerformedBy)</td>
+                    <td>@($"{treatment.PerformedOn:dd-MM-yyyy}")</td>
+                    <td><a asp-action="UpdateTreatment" asp-route-id="@treatment.Id" class="btn btn-bd-primary">Update</a></td>
+                    <td><a asp-action="DeleteTreatment" asp-route-id="@treatment.Id" class="btn btn-bd-primary">Delete</a></td>
+                </tr>
+            }
+
+        </tbody>
+
+    </table>
+
+
+
+
+
+
+</div>

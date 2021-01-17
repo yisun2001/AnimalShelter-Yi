@@ -1,0 +1,51 @@
+﻿@{
+    ViewData["Title"] = "Update a Treatment";
+}
+<h1>@ViewData["Title"]</h1>
+
+@model UpdateTreatmentViewModel
+
+<div>
+
+    <div asp-validation-summary="All"></div>
+
+    <div>
+        <form asp-action="UpdateTreatment" method="post">
+            <input hidden asp-for="AnimalId" />
+            <input hidden asp-for="Id"/>
+            <div class="form-group">
+                <label asp-for="Type">TreatmentType:</label>
+                <select class="form-control" asp-for="Type" asp-items="@ViewBag.Types"></select>
+            </div>
+
+            <div class="form-group">
+                <label asp-for="Description">Description:</label>
+                <textarea class="form-control" asp-for="Description"></textarea>
+            </div>
+
+         
+
+                <div class="form-group">
+                    <label asp-for="Charge">Charge:</label>
+                    <input class="form-control" asp-for="Charge" />
+                </div>
+
+            <div class="row">
+                <div class="form-group col-4">
+                    <label asp-for="PerformedBy">Performed By:</label>
+                    <input class="form-control" asp-for="PerformedBy" />
+                </div>
+
+                <div class="form-group col-4">
+                    <label asp-for="PerformedOn">Performed On:</label>
+                    <input type="date" class="form-control" asp-for="PerformedOn" />
+                    <span asp-validation-for="PerformedOn" class="text-danger"></span>
+                </div>
+            </div>
+
+            <div class="form-group ">
+                <button class="btn btn-primary col-sm-4 text-center">Update Treatment</button>
+            </div>
+        </form>
+    </div>
+</div>
